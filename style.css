@@ -3,6 +3,6 @@ h1 {
 }
 
 p {
-  display: inline-block;
+  text-align: left;
   width: 800px;
 }
