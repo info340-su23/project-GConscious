@@ -7,162 +7,38 @@
   </head>
 
   <body>
-    <header>
       <h1>INFO 340 Project Proposal</h1>
-    </header>
 
     <section>
-      <header>
         <h2>Problem/Data Domain</h2>
-        <!--Eric's Part-->
         <h3>1. Overview</h3>
-        <p>
-          The question of interest we raised as a group is how can we reinforce
-          the government website's functionality and make it easier for everyone
-          to access with correct information.
-        </p>
-        <!--Eric's Part-->
+        <p>As a group, we decided we wanted to tackle the issue of prescription medication adherence. The World Health Organization defines <a href="https://pubmed.ncbi.nlm.nih.gov/15910397" target="_blank">adherence</a> as "the degree to which [a patient's] behavior corresponds with the agreed recommendations from a health care provider." When a patient forgets which meds they take, doesn't take the appropriate number of doses each week, and forgets to refill their prescriptions on time, they are exhibiting poor adherence, and there is a deterioration in their health outcomes. It also makes it harder for their healthcare provider to help them, since the patient isn't doing their part to stay on top of their health.</p>
+
         <h3>2. Information technology problem</h3>
-        <p>
-          After doing some research online with our group members, we found out
-          that the capability to search on government websites is limited. The
-          website of the
-          <a href="https://apps.des.wa.gov/DESContracts/" target="_blank">
-            Washington State Department of Enterprise Services</a
-          >
-          from Washington State would be a good example for explanation: some of
-          the information is sorted into the wrong category, some of the
-          information on contract details are incomplete and outdated, and the
-          website could be a challenge for some users to navigate.
-        </p>
-        <!--Samaya's Part-->
+        <p>Pronouncing and recalling long lists of medication names is no easy task. Many people struggle with communicating every medication they are on with their providers for those reasons. Further, keeping track of how many pills are left in a prescription medication bottle can be difficult. Doing so meticulously requires the physical dexterity and acuity of vision to handle little pills, as well as the intellectual capability of counting up to large numbers. Additionally, not all pill bottles are transparent, adding to the difficulty. Finally, resetting a pillbox each week can be challenging, because a patient must rely on their memory of the past week to reset the pillbox. Human memory is fallible, thus an information problem presents itself in that capacity.</p>
+
         <h3>3. What has already been tried</h3>
-        <p>
-          There are already multiple official government websites which in
-          theory are meant to fill the niche of connecting small businesses with
-          lucrative government contracts. State governments, as well as the
-          federal government, all have websites like this. However, these
-          websites have almost always failed in practice. They tend to have poor
-          information filtering algorithms, fail to categorize contracts in a
-          useful way, and many of the listings are outdated (presumably due to
-          the poor usability of the existing websites). The previous solution to
-          the problem of government contract accessibility which we will most be
-          basing our improved service off of will be the Washington State
-          Department of Enterprise Services contract search webpage.
-        </p>
-        <!-- Mike's Part -->
-        <h3>4. Summary</h3>
-        <p>
-          Overall, state government websites are notorious for being nearly
-          indecipherable when trying to navigate their contents. As such,
-          navigating through government platforms can prove to be difficult in
-          finding the exact contents you desire. This includes poor
-          categorization and information tagging with terms that aren’t familiar
-          to the general public. For first time business owners, finding a
-          contract may be more of an arduous process than those who have
-          experience. We hope to make that process much smoother and inviting.
-        </p>
-      </header>
+        <p>Physical pillboxes are an elegant solution to the issue of medication adherence. However, we hope to build on top of the limits of pillboxes to make adherence an even easier task for patients. The information problems in this area which we mention above are not currently adequately addressed by physical pillboxes. <a href="http://apps.smarthealthit.org/app/duke-pillbox" target="_blank">Duke PillBox</a> is a preexisting attempt to address the issue of adherence. However, the app simply tells a patient's provider how good they are at keeping up with their doses. It does not actually empower the patient to do a better job of keeping track of their meds. At the end of the day, physicians can't take pills on their patient's behalf. Therefore Duke PillBox is not a robust solution to the issue.</p>
     </section>
 
     <section>
-      <header>
         <h2>App Description</h2>
-        <!--Samaya's Part-->
         <h3>1. Who are the users?</h3>
-        <p>
-          Our user base will broadly include any business owner hoping to sign
-          onto a government work contract. Businesses which primarily
-          participate in this labor contract model generally are small,
-          American, locally-owned businesses. Also veteran-owned businesses make
-          up many of the user base. While bigger companies will also
-          occasionally pick up these contracts, we're mainly hoping to target
-          and improve the experiences of small business owners who access this
-          website. Veterans are a systemically underserved social minority.
-          Also, bigger companies tend to have less ownership by racial, gender,
-          and sexual minorities. Therefore an improvement of this interface
-          would hopefully positively impact minority groups, as it'd make it
-          easier for them to find lucrative government contracts.
-        </p>
-        <!-- Amrith's Part -->
+        <p>Patients with at least one medication prescription will compose our user base. A vast majority of our users will include individuals with multiple prescriptions. This app will ideally help those with complex and acute medical needs, as they are the folks who tend to be on a higher number of medications. Individuals with physical disabilities and the elderly stand to benefit greatly from the app, as they may not possess the fine motor skills needed to easily handle and count pills. Those with intellectual disabilities and, again, the elderly, are likely to be supported by our app, which handles dose counting and information storage on their behalf. Our application will allow those users to more easily stick with an adherence plan and feel like an empowered agent in the improvement of their own health.</p>
+        
         <h3>2. What will the users do?</h3>
-        <p>
-          The users of the app will be able to create a profile for their
-          business and provide detailed information about the services they
-          offer. Once they add this information our app will generate relevant
-          contracts using the information provided on their profiles. The app
-          provides interactive features such as the ability to submit bids on
-          contracts and powerful search filtering to make it easy for businesses
-          to find what they are looking for. We’re following in the footsteps of
-          apps like Handshake and LinkedIn where people upload their resumes and
-          post their skillsets on their profiles.
-        </p>
-
+        <p>Users will be able to interact with three main features:</p>
         <ol>
-          <li>
-            Similarly, our application will allow clients to build customized
-            profiles, showcase the type of work they do, and display their
-            previous projects as a portfolio. Government agencies will also have
-            the ability to search for companies and view their profiles.
-          </li>
-          <li>
-            The bidding feature gives companies the ability to conveniently
-            submit a bid proposal for a contract. Proposals are securely
-            forwarded to the appropriate government agency or point of contact
-            for evaluation. Clients can track the status of their contracts once
-            they have submitted their proposals.
-          </li>
-          <li>
-            The last feature is the filter on the search page that allows
-            companies to narrow down specific types of contracts they’re looking
-            for. The search page includes filters such as the location of the
-            job, estimated duration of the contract, federal/state agency, and
-            range of pay, allowing businesses to narrow down specific types of
-            contracts they are interested in.
-          </li>
+          <li>First, they will be able to search a list of the <a href="https://clincalc.com/DrugStats/Top300Drugs.aspx" target="_blank">300 most common medications</a>, then save the meds they take to a personal list which users can show their healthcare providers when they are physically at a checkup.</li>
+          <li>Then, they will be able to sort their selected medications into a "weekly pill planner". The weekly pill planner will mirror what a patient's physical pill organizer should look like at the beginning of each week before the medications have been depleted.</li>
+          <li>Finally, patients will be able to input the number of pills they have, as well as the number of pills they take each week, into a "prescription countdown" feature. At the end of each week, patients must check a box saying they took all of their pills that week. Checking the box will deduct the number of pills per week from the total number of pills. When the total number of pills is close to being completely depleted, users will be notified that it's time to contact their pharmacy or healthcare provider for a refill.</li>
         </ol>
 
-        <!-- Amrith's Part -->
         <h3>3. What kind of information will the users be viewing?</h3>
-        <p>
-          The aggregated data will be coming from mostly government websites
-          where they display open contracts for businesses to bid on. We will
-          then display these contracts for businesses to see on our website.
-          Here are a few websites we may obtain data from:
-        </p>
-        <ul>
-          <li>
-            <a href="https://apps.des.wa.gov/DESContracts/" target="_blank">
-              Washington State Department of Enterprise Services</a
-            >
-          </li>
-          <li>
-            <a href="https://sam.gov/content/opportunities" target="_blank">
-              System for Award Management</a
-            >
-          </li>
-          <li>
-            <a
-              href="https://caleprocure.ca.gov/pages/Events-BS3/event-search.aspx"
-              target="_blank"
-            >
-              Cal eProcure</a
-            >
-          </li>
-        </ul>
+        <p>Once again, users will be able to view and interact with this list of the <a href="https://clincalc.com/DrugStats/Top300Drugs.aspx" target="_blank">300 most common medications</a>. To be more specific, users are able to view the details of these medications, refill information, and medication reminders. Every feature our users interface with will be derived from this information source.
 
-        <!-- Mike's Part -->
         <h3>4. How will the app help?</h3>
-        <p>
-          By addressing these issues, it will curate the current semantics and
-          organization of government contract websites. Resources for businesses
-          should be easy to find. While doing so, it will connect those with
-          companies to create long lasting relationships for continued work
-          while reducing missed connections. The search process would be easier
-          especially for new business owners leaving “gate keeping” tactics at a
-          minimum leveling out the playing field for those who are struggling.
-        </p>
-      </header>
+        <p>Searching and storing information from a list of canonical medication spellings will address the issue of medication names being difficult to recall and pronounce. Our "weekly pill planner" will remove the onus of remembering how to reset a physical pillbox each week. And counting pills, as well as remembering to refill prescriptions will be handled by our "prescription countdown" feature. With regards to the connection between these information issues and adherence: the list search will make it easier for patients and providers to agree on adherence expectations by facilitating accurate and informed communication, and the weekly planner will ensure that patients are continuously aware of their required dose, and the countdown will make patients less likely to skip doses while waiting for a refill.</p>
     </section>
   </body>
 </html>
