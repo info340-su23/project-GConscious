@@ -1,80 +1,56 @@
 body {
     background-color: #E8FFFF;
     margin: 0;
-    padding: 0;
-    font-family: 'Rammetto One';
+    padding: 1;
 }
 
-/* .title {
-    
-    font-family: 'Rammetto One';
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 68px;
-    text-align: left;
-} */
-
-footer {
-    background-color: #FEFFC5;
-}
-
-.button{
-    text-align: center;
-    
-}
-nav {
+header {
+    font-family: 'Rammetto One', sans-serif;
+    font-size: 15px;
     background-color: #58F4F4;
-    padding: .5rem;
-    /* line-height: 68px; */
-    /* text-align: left; */
+    padding: 1.5rem;
 }
+
+nav {
+    width: 100%;
+    top: 0;
+    left: 0;
+    padding-bottom: 0.5rem;
+}
+
 nav ul {
-    margin: 0;
-    padding: 0;
-    /* display: inline; */
+    margin: 0.5;
+    padding: 0.5;
 }
 
-nav li {
-    display: inline;
-    margin-right: 0;
+nav ul li {
+    display: block;
+    margin: 10px;
 }
 
-nav li:nth-of-type(3), nav li:nth-of-type(4) , nav li:nth-of-type(5)  {
+dt {
     display: none;
 }
 
-nav li:nth-of-type(2) {
-    /* s */
+.profile-image1, .profile-image2, .profile-image3 {
+    width: 200px;
+    height: 100px;
 }
 
-.material-icons:nth-of-type(1) {
-    /* font-size: 50px; */
+footer {
+    background-color: #FEFFC5;  
+    font: italic; 
+    line-height: 1;
+    margin: 0;
 }
 
-
-@media (min-width: 768px) {
-    .menu-bar {
-        display: none;
-    }
-    nav li:nth-of-type(3), nav li:nth-of-type(4) , nav li:nth-of-type(5) {
+@media (min-width: 598px) {
+    nav ul li{
         display: inline;
     }
 
-    body {
-        background-position: center;
-    }
-
-    html {
-        height: auto;
+    dt {
+        display: inline;
     }
 }
 
-@media (min-width: 992px) {
-    .large-navbar {
-        display: block;
-    }
-
-    nav {
-        font-size: 1.5rem;
-    }
-}
