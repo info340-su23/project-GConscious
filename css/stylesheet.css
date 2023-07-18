@@ -4,6 +4,10 @@ body {
     padding: 1;
 }
 
+main {
+    margin-bottom: 30px;
+}
+
 .container {
     display: inline-flex;
     margin-top: 0;
@@ -29,10 +33,16 @@ body {
     align-items: center;
 }
 
-#hamburger {
+.hamburger {
     font-size: 40px;
 }
 
+.upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40%;
+}
 
 .container .page-link {
     display: none;
@@ -41,39 +51,29 @@ body {
 header {
     font-family: 'Rammetto One', sans-serif;
     font-size: 15px;
-    /* background-color: #58F4F4; */
     padding: 1.5rem;
 }
 
-dt {
-    display: none;
+h1, h2, .time-remaining {
+    text-align: center;
 }
 
-.image-container {
-    display: inline;
+.pill-container {
+    margin: 18%;
+    margin-top: 0;
 }
 
-.profile-image1, .profile-image2, .profile-image3 {
-    width: 200px;
+.profile-image {
+    width: 120px;
     height: 100px;
+    margin: 6px;
 }
 
 .footer-container {
-    
-    max-width: 598px;
-    margin-left: auto;
+    max-width: 400px;
     margin-right: auto;
     padding: 1rem;
-    
 }
-
-/*footer {
-    background-color: #FEFFC5;  
-    font: italic; 
-    line-height: 1;
-    margin: 0;
-}
-*/
 
 @media (min-width: 598px) {
     .container {
@@ -107,15 +107,24 @@ dt {
         width: 500px;
     }
 
-    .footer-container {
-        max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
+    main {
+        height: 400px;
     }
 
-    dt {
-        display: inline;
+    .pill-container {
+        display: inline-flex;
+        margin: 18%;
+        margin-top: 0;
+    }
+
+    .profile-image {
+        width: 250px;
+        height: 200px;
+        margin: 6px;
+    }
+
+    .footer-container {
+        max-width: 960px;
     }
 }
 
