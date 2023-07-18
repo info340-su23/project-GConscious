@@ -128,3 +128,36 @@ h1, h2, .time-remaining {
     }
 }
 
+.search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 10px;
+    border: 1px solid #c2ca1e;
+    margin-bottom: 12px;
+}
+
+.search-input[type="text"], textarea{
+    background-color: #f4ff22;
+}
+
+.searchable-drugs-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.searchable-drugs-ul li a {
+    border: 1px solid #e3e796;
+    margin-top: -1px;
+    background-color: #fefff1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+}
+
+.searchable-drugs-ul li a:hover:not(.header) {
+    background-color: #f153bf;
+    border-color: #d341a5;
+}
