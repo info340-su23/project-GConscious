@@ -1,26 +1,28 @@
+/* General styling rules that apply to every page*/
 body {
-  background-color: #e8ffff;
+  background-color: #E8FFFF;
   margin: 0;
   padding: 1;
 }
 
 main {
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 }
 
+/* Navbar rules */
 .container {
   display: inline-flex;
   margin-top: 0;
-  background-color: #58f4f4;
+  background-color: #58F4F4;
   width: 100%;
   height: 80px;
   justify-content: space-between;
 }
 
 .container .logo {
-  font-family: "Rammetto One", sans-serif;
+  font-family: 'Rammetto One', sans-serif;
   font-size: 40px;
-  background-image: url("../img/line-6.png");
+  background-image: url('../img/line-6.png');
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 120px;
@@ -34,89 +36,143 @@ main {
 }
 
 .hamburger {
-    font-size: 40px;
+  font-size: 40px;
 }
 
+/* Rules for the "Upload meds" page */
 .upload {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 40%;
 }
 
 .container .page-link {
   display: none;
 }
 
+/* Rules for our headers for each page */
 header {
-    font-family: 'Rammetto One', sans-serif;
-    font-size: 15px;
-    padding: 1.5rem;
+  font-family: 'Rammetto One', sans-serif;
+  font-size: 15px;
+  padding: 1.5rem;
 }
 
+/* Rules for our title, medcine name, and texts */
 h1, h2, .time-remaining {
-    text-align: center;
+  text-align: center;
 }
 
+/* Rules of our images section in profile page */
 .pill-container {
-    margin: 18%;
-    margin-top: 0;
+  margin: 18%;
+  margin-top: 0;
 }
 
+/* Rules of our images in profile page */
 .profile-image {
-    width: 120px;
-    height: 100px;
-    margin: 6px;
+  width: 120px;
+  height: 100px;
+  margin: 6px;
 }
 
+/* Rules of our footer section */
 .footer-container {
-    max-width: 400px;
-    margin-right: auto;
-    padding: 1rem;
+  max-width: 400px;
+  margin-right: auto;
+  padding: 1rem;
 }
 
+/* Media query to enable varied display of our app on different devices: */
 @media (min-width: 598px) {
+  /* Media query rules for our flex containers: */
   .container {
-    flex-wrap: wrap;
-    height: 110px;
+      flex-wrap: wrap;
+      height: 110px;
   }
+  
   .container p {
-    margin: 0;
+      margin: 0;
   }
 
   .container-item {
-    margin-top: 0;
-    padding: 0;
+      margin-top: 0;
+      padding: 0;
   }
 
   .container-item:nth-child(2) {
-    display: none;
+      display: none;
   }
 
-    .container-item:nth-child(1) {
-        width: 100%;
-    }
-    
-    .container ul{
-        margin-left: 10px;
-        padding: 0;
-    }
-    .container .page-link {
-        display: inline;
-        margin: 0;
-        padding-right: 15px;
-        width: 500px;
-    }
+  .container-item:nth-child(1) {
+      width: 100%;
+  }
+  
+  .container ul{
+      margin-left: 10px;
+      padding: 0;
+  }
 
-    .footer-container {
-        max-width: 960px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 1rem;
-    }
+  .container .page-link {
+      display: inline;
+      margin: 0;
+      padding-right: 15px;
+      width: 500px;
+  }
 
-    dt {
-        display: inline;
-    }
+  main {
+      height: 400px;
+  }
+
+  .pill-container {
+      display: inline-flex;
+      margin: 18%;
+      margin-top: 0;
+  }
+
+  .profile-image {
+      width: 250px;
+      height: 200px;
+      margin: 6px;
+  }
+
+  .footer-container {
+      max-width: 960px;
+  }
 }
 
+/* Rules for the "Search" page */
+/* Rules for aspects of the "Search" input bar */
+.search-input {
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 10px;
+  border: 1px solid #c2ca1e;
+  margin-bottom: 12px;
+}
+
+.search-input[type="text"], textarea{
+  background-color: #f4ff22;
+}
+/* Rules for aspects of the searchable drug list */
+.searchable-drugs-ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.searchable-drugs-ul li a {
+  border: 1px solid #e3e796;
+  margin-top: -1px;
+  background-color: #fefff1;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block;
+}
+
+.searchable-drugs-ul li a:hover:not(.header) {
+  background-color: #f153bf;
+  border-color: #d341a5;
+}

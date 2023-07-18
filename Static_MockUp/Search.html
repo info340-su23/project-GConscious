@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
-    <meta name="author" content="your name">
-    <meta name="description" content="This page allows users to search prescripted drugs">
     <title>Prescription Search</title>
+    <link rel="icon" type="image/x-icon" href="../img/favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../css/stylesheet.css">
 </head>
+
 <body>
     <nav>
         <div class="container">
             <div class="container-item">
-                <p class="logo">Dose</p>
+                <p class="logo" alt="logo">Dose</p>
             </div>
             <div class="container-item">
-                <span id="hamburger" class="material-icons">menu</span>
+                <span class="material-icons hamburger" aria-label="menu">menu</span>
             </div>
             <div class="page-link">
                 <ul>
-                <li class="page-link"><a href="../index.html">My Pillbox</a></li>
-                <li class="page-link"><a href="Search.html">Search</a></li>
-                <li class="page-link"><a href="Upload.html">Upload Meds</a></li>
+                    <li class="page-link"><a aria-label="My Pillbox Page" href="../index.html">My Pillbox</a></li>
+                    <li class="page-link"><a aria-label="Search Page" href="Search.html">Search</a></li>
+                    <li class="page-link"><a aria-label="Upload Meds Page" href="Upload.html">Upload Meds</a></li>
                 </ul>
             </div>
         </div>
@@ -31,7 +32,16 @@
         <h1>Search for prescripted medicine</h1>
     </header>
     <main>
-        <!-- Insert content here -->
+        <input type="text" class="search-input" placeholder="Type here to search for medications..">
+        <ul class="searchable-drugs-ul">
+            <li><a href="#">Coumadin</a></li>
+            <li><a href="#">Ibuprofen</a></li>
+            <li><a href="#">Levonogestrel</a></li>
+            <li><a href="#">Atorvastatin</a></li>
+            <li><a href="#">Metoprolol</a></li>
+            <li><a href="#">Sertraline</a></li>
+        </ul>
+        </div>
     </main>
     <footer>
         <div class="footer-container">
@@ -40,4 +50,5 @@
         </div>
     </footer>
 </body>
+
 </html>
