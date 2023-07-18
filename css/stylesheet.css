@@ -4,6 +4,10 @@ body {
   padding: 1;
 }
 
+main {
+    margin-bottom: 30px;
+}
+
 .container {
   display: inline-flex;
   margin-top: 0;
@@ -29,8 +33,15 @@ body {
   align-items: center;
 }
 
-#hamburger {
-  font-size: 40px;
+.hamburger {
+    font-size: 40px;
+}
+
+.upload {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 40%;
 }
 
 .container .page-link {
@@ -38,41 +49,31 @@ body {
 }
 
 header {
-  font-family: "Rammetto One", sans-serif;
-  font-size: 15px;
-  /* background-color: #58F4F4; */
-  padding: 1.5rem;
+    font-family: 'Rammetto One', sans-serif;
+    font-size: 15px;
+    padding: 1.5rem;
 }
 
-dt {
-  display: none;
+h1, h2, .time-remaining {
+    text-align: center;
 }
 
-.image-container {
-  display: inline;
+.pill-container {
+    margin: 18%;
+    margin-top: 0;
 }
 
-.profile-image1,
-.profile-image2,
-.profile-image3 {
-  width: 200px;
-  height: 100px;
+.profile-image {
+    width: 120px;
+    height: 100px;
+    margin: 6px;
 }
 
 .footer-container {
-  max-width: 598px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 1rem;
+    max-width: 400px;
+    margin-right: auto;
+    padding: 1rem;
 }
-
-/*footer {
-    background-color: #FEFFC5;  
-    font: italic; 
-    line-height: 1;
-    margin: 0;
-}
-*/
 
 @media (min-width: 598px) {
   .container {
@@ -92,33 +93,63 @@ dt {
     display: none;
   }
 
-  .container-item:nth-child(1) {
-    width: 100%;
-  }
+    .container-item:nth-child(1) {
+        width: 100%;
+    }
+    
+    .container ul{
+        margin-left: 10px;
+        padding: 0;
+    }
+    .container .page-link {
+        display: inline;
+        margin: 0;
+        padding-right: 15px;
+        width: 500px;
+    }
 
-  .container ul {
-    margin-left: 5px;
-    padding: 0;
-  }
-  .container .page-link {
-    display: inline;
-    font-family: "Inter", sans-serif;
-    font-style: bold;
-    font-size: large;
-    font-weight: 400;
-    margin: 0;
-    padding-right: 10px;
-    width: 500px;
-  }
-  
-  .footer-container {
-    max-width: 960px;
+    .footer-container {
+        max-width: 960px;
     margin-left: auto;
     margin-right: auto;
     padding: 1rem;
-  }
+    }
 
-  dt {
-    display: inline;
-  }
+    dt {
+        display: inline;
+    }
+}
+
+.search-input {
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px 12px 10px;
+    border: 1px solid #c2ca1e;
+    margin-bottom: 12px;
+}
+
+.search-input[type="text"], textarea{
+    background-color: #f4ff22;
+}
+
+.searchable-drugs-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.searchable-drugs-ul li a {
+    border: 1px solid #e3e796;
+    margin-top: -1px;
+    background-color: #fefff1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+}
+
+.searchable-drugs-ul li a:hover:not(.header) {
+    background-color: #f153bf;
+    border-color: #d341a5;
 }
