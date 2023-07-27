@@ -82,7 +82,6 @@ h1, h2, .time-remaining {
   margin-right: auto;
   padding: 1rem;
 }
-
 /* Media query to enable varied display of our app on different devices: */
 @media (min-width: 598px) {
   /* Media query rules for our flex containers: */
