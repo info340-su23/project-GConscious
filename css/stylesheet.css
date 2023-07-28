@@ -10,7 +10,7 @@ main {
 }
 
 /* Navbar rules */
-.container {
+.container-fluid {
   display: inline-flex;
   margin-top: 0;
   background-color: #58F4F4;
@@ -19,7 +19,7 @@ main {
   justify-content: space-between;
 }
 
-.container .logo {
+.container-fluid .navbar-brand {
   font-family: 'Rammetto One', sans-serif;
   font-size: 40px;
   background-image: url('../img/line-6.png');
@@ -28,7 +28,7 @@ main {
   background-size: 120px;
 }
 
-.container-item {
+.nav-item {
   display: inline-flex;
   margin-left: 10px;
   margin-right: 10px;
@@ -58,20 +58,20 @@ header {
   padding: 1.5rem;
 }
 
-/* Rules for our title, medcine name, and texts */
+/* Rules for our title, medcine name, and texts 
 h1, h2, .time-remaining {
   text-align: left;
   margin-left: 30px;
   font-size: small;
-}
+} */
 
-/* Rules of our images section in profile page */
+/* Rules of our images section in profile page 
 .pill-container {
   margin: 18%;
   margin-top: 0;
 }
 
-/* Rules of our images in profile page */
+/* Rules of our images in profile page 
 .profile-image {
   width: 120px;
   height: 100px;
@@ -115,22 +115,22 @@ h1, h2, .time-remaining {
   border-color: #d341a5;
 }
 
-/* Rules of our footer section */
-.footer-container {
+/* Rules of our footer section 
+.footer {
   max-width: 400px;
   margin-right: auto;
   padding: 1rem;
-}
+}*/
 
 /* Media query to enable varied display of our app on different devices: */
 @media (min-width: 598px) {
 /* Rules for our title, medcine name, and texts */
-  h1, h2, .time-remaining {
+  /*h1, h2, .time-remaining {
     text-align: center;
     font-size: large;
-  }
+  }*/
 
-  /* Media query rules for nav containers: */
+  /* Media query rules for nav containers: 
   .container {
       flex-wrap: wrap;
       height: 160px;
@@ -172,15 +172,15 @@ h1, h2, .time-remaining {
   .container .page-link {
     display: inline;
       margin-right: 80x;
-      /* padding-right: 8; */
+      /* padding-right: 8; 
       width: 500px;
-      }
-
+      }*/
+  
   main {
       height: 400px;
   }
 
-  .pill-container {
+  /*.pill-container {
       display: inline-flex;
       margin: 18%;
       margin-top: 0;
@@ -190,13 +190,13 @@ h1, h2, .time-remaining {
       width: 250px;
       height: 200px;
       margin: 6px;
-  }
+  }*/
 
   .searchable-drugs-ul li a {
     font-size: 18px;
   }
 
-  .footer-container {
+  /*.footer {
       max-width: 960px;
-  }
+  }*/
 }
