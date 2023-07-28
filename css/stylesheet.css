@@ -8,15 +8,11 @@ body {
 main {
   margin-bottom: 30px;
 }
+/* 
+Navbar rules */
 
-/* Navbar rules */
-.container-fluid {
-  display: inline-flex;
-  margin-top: 0;
+ .container-fluid {
   background-color: #58F4F4;
-  width: 100%;
-  height: 80px;
-  justify-content: space-between;
 }
 
 .container-fluid .navbar-brand {
@@ -26,17 +22,6 @@ main {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 120px;
-}
-
-.nav-item {
-  display: inline-flex;
-  margin-left: 10px;
-  margin-right: 10px;
-  align-items: center;
-}
-
-.hamburger {
-  font-size: 40px;
 }
 
 /* Rules for the "Upload meds" page */
@@ -124,6 +109,12 @@ h1, h2, .time-remaining {
 
 /* Media query to enable varied display of our app on different devices: */
 @media (min-width: 598px) {
+/* logo size change */
+.container-fluid .navbar-brand {
+  font-size: 50px;
+  background-size: 130px;
+}
+
 /* Rules for our title, medcine name, and texts */
   /*h1, h2, .time-remaining {
     text-align: center;
