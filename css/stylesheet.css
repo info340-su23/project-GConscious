@@ -31,10 +31,19 @@ main, footer {
 
 /* Rules for the "Upload meds" page */
 .upload {
+  font-family: 'Rammetto One', sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 40%;
+
+}
+
+.upload-fields{
+  padding: 0.5em;
+}
+
+.upload-btn {
+  margin-top: 15px;
 }
 
 .container .page-links {
