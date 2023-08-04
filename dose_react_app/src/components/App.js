@@ -7,8 +7,8 @@ import { UploadForm } from './UploadForm.js';
 
 const SAMPLE_DATA =
 {
-  pillName: "advil",
-  days: ["monday", "tuesday", "wednesday"],
+  pillName: "Advil",
+  days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
   dose: 3,
   quantity: 40,
   refills: 3,
@@ -20,12 +20,11 @@ console.log(SAMPLE_DATA);
 function App() {
   return (
     <div>
-
       <Header />
       <main>
         <div className="container">
-          {/* <PillboxContent sampleData={SAMPLE_DATA} /> */}
-          <UploadForm />
+          {<PillboxContent sampleData={SAMPLE_DATA} />}
+          {/*<UploadForm />*/}
           <Footer />
         </div>
       </main>
