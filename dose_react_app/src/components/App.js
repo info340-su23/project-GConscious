@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Header } from './Header.js';
 import { Footer } from './Footer.js';
-import { PillboxContent } from './SectionPillboxContent.js'
+import { PillboxContent } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
 
 const SAMPLE_DATA =
@@ -24,8 +24,8 @@ function App() {
       <Header />
       <main>
         <div className="container">
-          {/* <PillboxContent sampleData={SAMPLE_DATA} /> */} {/* uncomment to see content*/}
-          {/* <UploadForm /> */} {/* uncomment to see content*/}
+          {/* <PillboxContent sampleData={SAMPLE_DATA} /> */}
+          <UploadForm />
           <Footer />
         </div>
       </main>

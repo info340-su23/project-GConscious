@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-
 function PillboxCardContents(props) {
   const sampleData = props.sampleData;
   console.log(sampleData.pillName);
@@ -25,7 +24,7 @@ function PillboxCardContents(props) {
 
 
 export function PillboxContent(props) {
-  const [img, altText] = useState(props);
+  // const [img, altText] = useState(props);
 
   const sampleData = props.sampleData;
   console.log(sampleData);
