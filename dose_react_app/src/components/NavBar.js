@@ -16,13 +16,13 @@ export function NavBar() {
                             <a className="nav-link active" aria-current="page" href="">Home</a>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="My Pillbox Page" className="nav-link" href="">My Pillbox</a>
+                            <a aria-label="My Pillbox Page" className="nav-link" href="/pillbox">My Pillbox</a>
                         </li>
                         <li className="nav-item">
                             <a aria-label="Search Page" className="nav-link" href="">Search</a>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="Upload Meds Page" className="nav-link" href="">Upload Meds</a>
+                            <a aria-label="Upload Meds Page" className="nav-link" href="/upload">Upload Meds</a>
                         </li>
                     </ul>
                 </div>

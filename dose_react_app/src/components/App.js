@@ -4,6 +4,8 @@ import { Header } from './Header.js';
 import { Footer } from './Footer.js';
 import { PillboxContent } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
+import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+
 
 const SAMPLE_DATA =
 {
@@ -23,11 +25,15 @@ function App() {
       <Header />
       <main>
         <div className="container">
-          {<PillboxContent sampleData={SAMPLE_DATA} />}
-          {/*<UploadForm />*/}
-          <Footer />
+          <Routes>
+
+            <Route path="pillbox" element={<PillboxContent sampleData={SAMPLE_DATA} />} />
+            <Route path="upload" element={<UploadForm />} />
+
+          </Routes>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }
