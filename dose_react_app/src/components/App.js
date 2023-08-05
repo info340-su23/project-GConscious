@@ -17,6 +17,29 @@ const SAMPLE_DATA =
   description: "For headaches, fevers, inflammation, hangovers",
   symptoms: "feel better i guess?"
 }
+
+const SECOND_SAMPLE_DATA =
+  [
+    {
+      pillName: "Advil",
+      days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+      dose: 3,
+      quantity: 40,
+      refills: 3,
+      description: "For headaches, fevers, inflammation, hangovers",
+      symptoms: "feel better i guess?"
+    },
+
+    {
+      pillName: "Advil",
+      days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+      dose: 3,
+      quantity: 40,
+      refills: 3,
+      description: "For headaches, fevers, inflammation, hangovers",
+      symptoms: "feel better i guess?"
+    }
+  ]
 console.log(SAMPLE_DATA);
 
 function App() {

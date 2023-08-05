@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 function PillboxCardContents(props) {
-  const { pillName, dose, quantity, refills } = props.dayData;
+  const { pillName, dose, quantity, refills, description, symptoms } = props.dayData;
   /*const sampleData = props.sampleData;
   console.log(sampleData.pillName);*/
 
@@ -16,6 +16,8 @@ function PillboxCardContents(props) {
             <p>{"Dose: " + dose + " per day."}</p>
             <p>{"Quantity: " + quantity}</p>
             <p>{"Next Refill: " + refills + " weeks left. "}</p>
+            <p>{"Description: " + description}</p>
+            <p>{"Symptoms: " + symptoms}</p>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
@@ -27,7 +29,6 @@ function PillboxCardContents(props) {
 
 export function PillboxContent(props) {
   const { days } = props.sampleData;
-
   return (
     <div className="row my-4">
       {days.map((dayName, index) => (
