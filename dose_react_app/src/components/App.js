@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Header } from './Header.js';
 import { Footer } from './Footer.js';
@@ -70,6 +70,10 @@ SAMPLE_DATA.forEach(pillObj => {
 console.log(weeklyPills);
 
 function App() {
+  const [prescriptions, setPrescriptions] = useState(SAMPLE_DATA);
+  const handleAddPrescription = (newPrescription) => {
+    setPrescriptions([...prescriptions, newPrescription]);
+  };
   return (
     <div>
       <Header />
@@ -77,7 +81,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="pillbox" element={<PillboxRow weeklyPills={weeklyPills} />} />
-            <Route path="upload" element={<UploadForm />} />
+            <Route path="upload" element={<UploadForm addPrescription={handleAddPrescription}/>} />
 
           </Routes>
         </div>
