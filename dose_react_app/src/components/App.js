@@ -7,18 +7,18 @@ import { UploadForm } from './UploadForm.js';
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 
 
-const SAMPLE_DATA =
-{
-  pillName: "Advil",
-  days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-  dose: 3,
-  quantity: 40,
-  refills: 3,
-  description: "For headaches, fevers, inflammation, hangovers",
-  symptoms: "feel better i guess?"
-}
+// const SAMPLE_DATA =
+// {
+//   pillName: "Advil",
+//   days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+//   dose: 3,
+//   quantity: 40,
+//   refills: 3,
+//   description: "For headaches, fevers, inflammation, hangovers",
+//   symptoms: "feel better i guess?"
+// }
 
-const SECOND_SAMPLE_DATA =
+const SAMPLE_DATA =
   [
     {
       pillName: "Advil",
@@ -31,7 +31,7 @@ const SECOND_SAMPLE_DATA =
     },
 
     {
-      pillName: "Advil",
+      pillName: "Chillpill",
       days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
       dose: 3,
       quantity: 40,

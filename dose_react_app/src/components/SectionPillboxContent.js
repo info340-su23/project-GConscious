@@ -28,14 +28,28 @@ function PillboxCardContents(props) {
 
 
 export function PillboxContent(props) {
-  const { days } = props.sampleData;
+  const sampleData = props.sampleData;
+  // const { days } = props.sampleData;
+  // days.map((dayName, index) => (
+  //   <div key={index} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
+  //     <PillboxCardContents dayData={props.sampleData} dayName={dayName} />
+  //   </div>
+  // ))
   return (
     <div className="row my-4">
-      {days.map((dayName, index) => (
-        <div key={index} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
-          <PillboxCardContents dayData={props.sampleData} dayName={dayName} />
-        </div>
-      ))}
+      {
+        sampleData.map((pillObj) => {
+          console.log(pillObj);
+          const { days } = pillObj;
+          return (
+            days.map((dayName, index) => (
+              <div key={index} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
+                <PillboxCardContents dayData={pillObj} dayName={dayName} />
+              </div>
+            ))
+          )
+        })
+      }
     </div>
   );
 }
