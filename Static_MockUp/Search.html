@@ -51,21 +51,15 @@
                   <li class="nav-item">
                     <a aria-label="Upload Meds Page" class="nav-link" href="Upload.html">Upload Meds</a>
                   </li>
+                </ul>
               </div>
             </div>
         </nav>
     </header>
     <main>
         <input type="text" class="search-input" placeholder="Type here to search for medications..">
-        <ul class="searchable-drugs-ul">
-            <li><a href="#">Coumadin</a></li>
-            <li><a href="#">Ibuprofen</a></li>
-            <li><a href="#">Levonogestrel</a></li>
-            <li><a href="#">Atorvastatin</a></li>
-            <li><a href="#">Metoprolol</a></li>
-            <li><a href="#">Sertraline</a></li>
-        </ul>
-        </div>
+        <ul id='drugSearch' class="searchable-drugs-ul"></ul>
+        <script src="./search_drugs.js"></script>
     </main>
     <footer>
       <div class="col-md-5 offset-md-1 mb-3">
