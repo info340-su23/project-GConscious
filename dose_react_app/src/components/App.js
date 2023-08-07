@@ -43,41 +43,52 @@ const SAMPLE_DATA =
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
 function App() {
-  // const [prescriptions, setPrescriptions] = useState(SAMPLE_DATA);
-  // const handleAddPrescription = (newPrescription) => {
-  //   setPrescriptions([...prescriptions, newPrescription]);
-  // };
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
 
 
-  const handleClick = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     console.log("you Clicked ME");
-    const addNewPillTest = {
-      pillName: "test3",
-      days: ["saturday"],
-      dose: 3,
-      quantity: 40,
-      refills: 3,
-      description: "For headaches, fevers, inflammation, hangovers",
-      symptoms: "feel better i guess?"
-    }
-    const newUserData = [...userData, addNewPillTest];
+    console.log(event.target.pillName);
+    // const addNewPillTest = {
+    //   pillName: "test3",
+    //   days: ["saturday"],
+    //   dose: 3,
+    //   quantity: 40,
+    //   refills: 3,
+    //   description: "For headaches, fevers, inflammation, hangovers",
+    //   symptoms: "feel better i guess?"
+    // }
+
+
+    // Grab Form Values and create new prescription
+    const pillName = event.target.pillName.value;
+    const dose = Number(event.target.dose.value);
+    const quantity = Number(event.target.quantity.value);
+    const refills = Number(event.target.refills.value);
+    const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    const description = event.target.description.value;
+    const symptoms = event.target.symptoms.value;
+    const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: days, description: description, symptoms: symptoms }
+
+    // Add on to current userData and setUser data
+    const newUserData = [...userData, newPrescription];
     setUserData(newUserData);
+
+    //Create new weekly prescriptions with current userData pills. Set the new prescription. 
     const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
     newUserData.forEach(pillObj => {
       pillObj.days.forEach(day => {
         weeklyPills[day].push(pillObj)
       });
     });
-    console.log(weeklyPills);
+
     setPrescriptions(weeklyPills);
-    // navigate('pillbox');
+    event.target.reset();
+    navigate('pillbox');
   }
-
-
 
   return (
     <div>
@@ -86,8 +97,7 @@ function App() {
         <div className="container">
           <Routes>
             <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} />} />
-            {/* <Route path="upload" element={<UploadForm addPrescription={handleAddPrescription} />} /> */}
-            <Route path="upload" element={<UploadForm handleClick={handleClick} />} />
+            <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
           </Routes>
         </div>
       </main>
