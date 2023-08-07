@@ -5,18 +5,7 @@ import { Footer } from './Footer.js';
 import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
-
-
-// const SAMPLE_DATA =
-// {
-//   pillName: "Advil",
-//   days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-//   dose: 3,
-//   quantity: 40,
-//   refills: 3,
-//   description: "For headaches, fevers, inflammation, hangovers",
-//   symptoms: "feel better i guess?"
-// }
+import { add } from 'lodash';
 
 const SAMPLE_DATA =
   [
@@ -50,39 +39,52 @@ const SAMPLE_DATA =
     }
   ]
 
-// USE STATE PSEUDO CODE
-// const [userData, setUserdata] = useState(SAMPLE_DATA);
-
-// const handleClick = (event) (
-
-//   setUserData(formUploadObj) 
-// )
-
-
-
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
-SAMPLE_DATA.forEach(pillObj => {
-  pillObj.days.forEach(day => {
-    weeklyPills[day].push(pillObj)
-  })
-})
-console.log(weeklyPills);
-
 function App() {
-  const [prescriptions, setPrescriptions] = useState(SAMPLE_DATA);
-  const handleAddPrescription = (newPrescription) => {
-    setPrescriptions([...prescriptions, newPrescription]);
-  };
+  // const [prescriptions, setPrescriptions] = useState(SAMPLE_DATA);
+  // const handleAddPrescription = (newPrescription) => {
+  //   setPrescriptions([...prescriptions, newPrescription]);
+  // };
+  const [prescriptions, setPrescriptions] = useState(weeklyPills);
+  const [userData, setUserData] = useState([]);
+
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    console.log("you Clicked ME");
+    const addNewPillTest = {
+      pillName: "test2",
+      days: ["saturday"],
+      dose: 3,
+      quantity: 40,
+      refills: 3,
+      description: "For headaches, fevers, inflammation, hangovers",
+      symptoms: "feel better i guess?"
+    }
+    const newUserData = [...userData, addNewPillTest];
+    setUserData(newUserData);
+    const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+    newUserData.forEach(pillObj => {
+      pillObj.days.forEach(day => {
+        weeklyPills[day].push(pillObj)
+      });
+    });
+    console.log(weeklyPills);
+    setPrescriptions(weeklyPills);
+  }
+
+
+
   return (
     <div>
       <Header />
       <main>
         <div className="container">
           <Routes>
-            <Route path="pillbox" element={<PillboxRow weeklyPills={weeklyPills} />} />
-            <Route path="upload" element={<UploadForm addPrescription={handleAddPrescription}/>} />
-
+            <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} />} />
+            {/* <Route path="upload" element={<UploadForm addPrescription={handleAddPrescription} />} /> */}
+            <Route path="upload" element={<UploadForm handleClick={handleClick} />} />
           </Routes>
         </div>
       </main>

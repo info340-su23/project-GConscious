@@ -13,16 +13,16 @@ export function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="">Home</a>
+                            <Link className="nav-link active" aria-current="page" href="">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="My Pillbox Page" className="nav-link" href="/pillbox">My Pillbox</a>
+                            <Link aria-label="My Pillbox Page" className="nav-link" href="/pillbox">My Pillbox</Link>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="Search Page" className="nav-link" href="">Search</a>
+                            <Link aria-label="Search Page" className="nav-link" href="">Search</Link>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="Upload Meds Page" className="nav-link" href="/upload">Upload Meds</a>
+                            <Link aria-label="Upload Meds Page" className="nav-link" href="/upload">Upload Meds</Link>
                         </li>
                     </ul>
                 </div>

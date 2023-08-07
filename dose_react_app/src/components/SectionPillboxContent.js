@@ -47,8 +47,8 @@ function PillItems(props) {
 
   return (
     weeklyPills[day].map(pillObj => (
-      <Accordion defaultActiveKey="1">
-        <Accordion.Item key={pillObj.pillName} eventKey="0">
+      <Accordion key={pillObj.pillName} defaultActiveKey="1">
+        <Accordion.Item eventKey="0">
           <Accordion.Header>{pillObj.pillName}</Accordion.Header>
           <Accordion.Body>
             <p>{"Dose: " + pillObj.dose + " per day."}</p>
@@ -89,36 +89,38 @@ function PillboxContent(props) {
 
   return (
     <div className="row my-4">
-      {daysOfTheWeek.map(day => {
-        if (weeklyPills[day].length === 0) {
-          return (
-            <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
-              <div className="card my-2" style={{ width: '18rem' }}>
-                <img src={require('../days/' + day + '.png')} alt="React Image" />
-                <Accordion defaultActiveKey="1">
-                  <Accordion.Item eventKey="0">
-                    <Accordion.Header>No Pills For Today!</Accordion.Header>
-                    <Accordion.Body>
-                      <p>No Pills For Today!</p>
-                    </Accordion.Body>
-                  </Accordion.Item>
-                </Accordion>
+      {
+        daysOfTheWeek.map(day => {
+          if (weeklyPills[day].length === 0) {
+            return (
+              <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
+                <div className="card my-2" style={{ width: '18rem' }}>
+                  <img src={require('../days/' + day + '.png')} alt="React Image" />
+                  <Accordion defaultActiveKey="1">
+                    <Accordion.Item eventKey="0">
+                      <Accordion.Header>No Pills For Today!</Accordion.Header>
+                      <Accordion.Body>
+                        <p>No Pills For Today!</p>
+                      </Accordion.Body>
+                    </Accordion.Item>
+                  </Accordion>
+                </div>
               </div>
-            </div>
-          );
-        } else {
-          return (
-            <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
-              <div className="card my-2" style={{ width: '18rem' }}>
-                <img src={require('../days/' + day + '.png')} alt="React Image" />
-                <Accordion defaultActiveKey="1">
-                  <PillItems day={day} weeklyPills={weeklyPills} />
-                </Accordion>
+            );
+          } else {
+            return (
+              <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
+                <div className="card my-2" style={{ width: '18rem' }}>
+                  <img src={require('../days/' + day + '.png')} alt="React Image" />
+                  <Accordion defaultActiveKey="1">
+                    <PillItems day={day} weeklyPills={weeklyPills} />
+                  </Accordion>
+                </div>
               </div>
-            </div>
-          );
-        }
-      })}
+            );
+          }
+        })
+      }
     </div>
   );
 }
@@ -127,9 +129,8 @@ function PillboxContent(props) {
 export function PillboxRow(props) {
   const weeklyPills = props.weeklyPills
   return (
-    <div className="row my-4">
-      <PillboxContent weeklyPills={weeklyPills} />
-    </div>
+
+    <PillboxContent weeklyPills={weeklyPills} />
   )
 
 }
