@@ -1,17 +1,28 @@
 import React, { useState } from 'react';
 
+
 export function UploadForm(props) {
-    // const [newPrescription, setNewPrescription] = useState({
-    //     pillName: "",
-    //     dose: 0,
-    //     quantity: 0,
-    //     refills: 0,
-    //     days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
-    // });
-    // const handleInput = (event) => {
-    //     const { name, value } = event.target;
-    //     setNewPrescription({ ...newPrescription, [name]: value });
-    // };
+    const [newPrescription, setNewPrescription] = useState({
+        pillName: "",
+        dose: "",
+        quantity: "",
+        refills: "",
+        description: "",
+        symptoms: "",
+        days: {monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false,},
+    });
+
+    const handleCheckboxChange = (event) => {
+        const { name, checked } = event.target;
+        setNewPrescription((previousPrescription) => ({...previousPrescription,
+            days: {
+                ...previousPrescription.days,
+                [name]: checked,
+            },
+        }));
+    };
+
+    
     // const handleClick = (event) => {
     //     event.preventDefault();
     //     props.addPrescription(newPrescription);
@@ -20,7 +31,9 @@ export function UploadForm(props) {
     //         dose: "",
     //         quantity: "",
     //         refills: "",
-    //         days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
+    //         description: "",
+    //         symptoms: "",
+    //         //days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
     //     });
     // };
 
@@ -29,7 +42,8 @@ export function UploadForm(props) {
             <form onSubmit={props.handleSubmit}>
                 <div className="form-group upload-fields">
                     <label htmlFor="medName" className="col-sm-2 col-form-label">Medicine Name </label>
-                    <input type="text"
+                    <input 
+                        type="text"
                         className="form-control"
                         name="pillName"
                         placeholder="Ex. Acetaminophen" />
@@ -74,9 +88,27 @@ export function UploadForm(props) {
                         name="symptoms"
                     />
                 </div>
+                <div className="mb-3">
+                    <label className="form-label">Days</label>
+                    <div>
+                        {Object.keys(newPrescription.days).map((day) => (
+                        <div key={day} className="form-check form-check-inline">
+                            <input
+                            className="form-check-input"
+                            type="checkbox"
+                            name={day}
+                            checked={newPrescription.days[day]}
+                            onChange={handleCheckboxChange}
+                            />
+                            <label className="form-check-label" htmlFor={day}>
+                                {day}
+                            </label>
+                        </div>
+                        ))}
+                    </div>
+                </div>
                 <button className="btn btn-primary">Submit</button>
             </form>
-
         </div>
     );
 }

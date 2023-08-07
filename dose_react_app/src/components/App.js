@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import { Header } from './Header.js';
 import { Footer } from './Footer.js';
 import { PillboxRow } from './SectionPillboxContent.js';
@@ -8,37 +7,37 @@ import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import { add } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 
-const SAMPLE_DATA =
-  [
-    {
-      pillName: "Advil",
-      days: ["monday", "tuesday", "wednesday"],
-      dose: 3,
-      quantity: 40,
-      refills: 3,
-      description: "For headaches, fevers, inflammation, hangovers",
-      symptoms: "feel better i guess?"
-    },
+// const SAMPLE_DATA =
+//   [
+//     {
+//       pillName: "Advil",
+//       days: ["monday", "tuesday", "wednesday"],
+//       dose: 3,
+//       quantity: 40,
+//       refills: 3,
+//       description: "For headaches, fevers, inflammation, hangovers",
+//       symptoms: "feel better i guess?"
+//     },
 
-    {
-      pillName: "Chillpill",
-      days: ["monday", "tuesday", "wednesday"],
-      dose: 3,
-      quantity: 40,
-      refills: 3,
-      description: "For headaches, fevers, inflammation, hangovers",
-      symptoms: "feel better i guess?"
-    },
-    {
-      pillName: "hangover pill",
-      days: ["friday"],
-      dose: 3,
-      quantity: 40,
-      refills: 3,
-      description: "For headaches, fevers, inflammation, hangovers",
-      symptoms: "feel better i guess?"
-    }
-  ]
+//     {
+//       pillName: "Chillpill",
+//       days: ["monday", "tuesday", "wednesday"],
+//       dose: 3,
+//       quantity: 40,
+//       refills: 3,
+//       description: "For headaches, fevers, inflammation, hangovers",
+//       symptoms: "feel better i guess?"
+//     },
+//     {
+//       pillName: "hangover pill",
+//       days: ["friday"],
+//       dose: 3,
+//       quantity: 40,
+//       refills: 3,
+//       description: "For headaches, fevers, inflammation, hangovers",
+//       symptoms: "feel better i guess?"
+//     }
+//   ];
 
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
@@ -46,12 +45,13 @@ function App() {
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
+  
 
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("you Clicked ME");
-    console.log(event.target.pillName);
+    //console.log("you Clicked ME");
+    //console.log(event.target.pillName);
     // const addNewPillTest = {
     //   pillName: "test3",
     //   days: ["saturday"],
@@ -71,8 +71,8 @@ function App() {
     const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
     const description = event.target.description.value;
     const symptoms = event.target.symptoms.value;
-    const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: days, description: description, symptoms: symptoms }
-
+    const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: days, description: description, symptoms: symptoms };
+    
     // Add on to current userData and setUser data
     const newUserData = [...userData, newPrescription];
     setUserData(newUserData);
@@ -88,6 +88,7 @@ function App() {
     setPrescriptions(weeklyPills);
     event.target.reset();
     navigate('pillbox');
+    
   }
 
   return (
