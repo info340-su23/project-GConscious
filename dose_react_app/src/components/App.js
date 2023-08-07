@@ -80,8 +80,8 @@ function App() {
           <Routes>
             <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
+            <Route index element={<Search />} />
           </Routes>
-          <Search />
         </div>
       </main>
       <Footer />

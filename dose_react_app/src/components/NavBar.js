@@ -19,9 +19,9 @@ export function NavBar() {
                     <NavLink to='/pillbox'>My Pillbox</NavLink>
                     <NavLink to='/upload'>upload</NavLink> */}
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li className="nav-item">
+                        {/* <li className="nav-item">
                             <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
-                        </li>
+                        </li> */}
                         <li className="nav-item">
                             <NavLink aria-label="My Pillbox Page" className="nav-link" to="/pillbox">My Pillbox</NavLink>
                         </li>
