@@ -3,6 +3,7 @@ import { Header } from './Header.js';
 import { Footer } from './Footer.js';
 import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
+import { Search } from './Search.js';
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import { add } from 'lodash';
 import { useNavigate } from 'react-router-dom';
@@ -80,6 +81,7 @@ function App() {
             <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
           </Routes>
+          <Search />
         </div>
       </main>
       <Footer />
