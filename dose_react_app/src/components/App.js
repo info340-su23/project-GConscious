@@ -23,24 +23,13 @@ function App() {
     const dose = Number(event.target.dose.value);
     const quantity = Number(event.target.quantity.value);
     const refills = Number(event.target.refills.value);
-    // const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-    //--------------------------trying to grab checkbox values
-    // const daysArray = []
-    // console.log(daysArray);
-    // console.log(event.target.checked);
-    // if (event.target.name.value == true) {
-    //   daysArray.push("monday");
-    // }
-    // console.log(daysArray)
-    console.log(event.target.monday.value);
-    console.log(event.target.monday.checked);
-    const daysArray = []
-    console.log(event.target["monday"].value);
-    if (event.target.monday.checked === true) {
-      daysArray.push(event.target.monday.value);
-    }
-    console.log(daysArray);
-    //--------------------------------------------------
+    const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    const daysArray = [];
+    days.forEach(day => {
+      if (event.target[day].checked === true) {
+        daysArray.push(event.target[day].value);
+      }
+    })
     const description = event.target.description.value;
     const symptoms = event.target.symptoms.value;
     const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
@@ -57,16 +46,11 @@ function App() {
       });
     });
 
-
-
-
-
     setPrescriptions(weeklyPills);
     event.target.reset();
     navigate('pillbox');
 
   }
-
 
   const handleRemove = (event) => {
     const pillName = event.target.name;
