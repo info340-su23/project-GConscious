@@ -6,6 +6,7 @@ import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import { add } from 'lodash';
+import { useNavigate } from 'react-router-dom';
 
 const SAMPLE_DATA =
   [
@@ -48,13 +49,14 @@ function App() {
   // };
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
+  const navigate = useNavigate();
 
 
   const handleClick = (event) => {
     event.preventDefault();
     console.log("you Clicked ME");
     const addNewPillTest = {
-      pillName: "test2",
+      pillName: "test3",
       days: ["saturday"],
       dose: 3,
       quantity: 40,
@@ -72,6 +74,7 @@ function App() {
     });
     console.log(weeklyPills);
     setPrescriptions(weeklyPills);
+    // navigate('pillbox');
   }
 
 
