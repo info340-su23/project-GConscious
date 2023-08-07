@@ -7,37 +7,6 @@ import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import { add } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 
-// const SAMPLE_DATA =
-//   [
-//     {
-//       pillName: "Advil",
-//       days: ["monday", "tuesday", "wednesday"],
-//       dose: 3,
-//       quantity: 40,
-//       refills: 3,
-//       description: "For headaches, fevers, inflammation, hangovers",
-//       symptoms: "feel better i guess?"
-//     },
-
-//     {
-//       pillName: "Chillpill",
-//       days: ["monday", "tuesday", "wednesday"],
-//       dose: 3,
-//       quantity: 40,
-//       refills: 3,
-//       description: "For headaches, fevers, inflammation, hangovers",
-//       symptoms: "feel better i guess?"
-//     },
-//     {
-//       pillName: "hangover pill",
-//       days: ["friday"],
-//       dose: 3,
-//       quantity: 40,
-//       refills: 3,
-//       description: "For headaches, fevers, inflammation, hangovers",
-//       symptoms: "feel better i guess?"
-//     }
-//   ];
 
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
@@ -45,34 +14,37 @@ function App() {
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
-  
-
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    //console.log("you Clicked ME");
-    //console.log(event.target.pillName);
-    // const addNewPillTest = {
-    //   pillName: "test3",
-    //   days: ["saturday"],
-    //   dose: 3,
-    //   quantity: 40,
-    //   refills: 3,
-    //   description: "For headaches, fevers, inflammation, hangovers",
-    //   symptoms: "feel better i guess?"
-    // }
-
 
     // Grab Form Values and create new prescription
     const pillName = event.target.pillName.value;
     const dose = Number(event.target.dose.value);
     const quantity = Number(event.target.quantity.value);
     const refills = Number(event.target.refills.value);
-    const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    // const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    //--------------------------trying to grab checkbox values
+    // const daysArray = []
+    // console.log(daysArray);
+    // console.log(event.target.checked);
+    // if (event.target.name.value == true) {
+    //   daysArray.push("monday");
+    // }
+    // console.log(daysArray)
+    console.log(event.target.monday.value);
+    console.log(event.target.monday.checked);
+    const daysArray = []
+    console.log(event.target["monday"].value);
+    if (event.target.monday.checked === true) {
+      daysArray.push(event.target.monday.value);
+    }
+    console.log(daysArray);
+    //--------------------------------------------------
     const description = event.target.description.value;
     const symptoms = event.target.symptoms.value;
-    const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: days, description: description, symptoms: symptoms };
-    
+    const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
+
     // Add on to current userData and setUser data
     const newUserData = [...userData, newPrescription];
     setUserData(newUserData);
@@ -85,11 +57,35 @@ function App() {
       });
     });
 
+
+
+
+
     setPrescriptions(weeklyPills);
     event.target.reset();
     navigate('pillbox');
-    
+
   }
+
+
+  const handleRemove = (event) => {
+    const pillName = event.target.name;
+    const day = event.target.value;
+
+    //filter pills with that day. 
+    console.log(prescriptions);
+
+    const newPrescription = prescriptions[day].filter(pillObj => {
+      return pillObj.pillName != pillName;
+    })
+    // create new list of pills for specific day
+    const dayPills = {};
+    dayPills[day] = newPrescription;
+
+    //create new weekly prescription and set state
+    const newWeekPrescriptions = { ...prescriptions, ...dayPills }
+    setPrescriptions(newWeekPrescriptions);
+  };
 
   return (
     <div>
@@ -97,7 +93,7 @@ function App() {
       <main>
         <div className="container">
           <Routes>
-            <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} />} />
+            <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
           </Routes>
         </div>

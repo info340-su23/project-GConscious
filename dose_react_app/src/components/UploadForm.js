@@ -3,26 +3,29 @@ import React, { useState } from 'react';
 
 export function UploadForm(props) {
     const [newPrescription, setNewPrescription] = useState({
-        pillName: "",
-        dose: "",
-        quantity: "",
-        refills: "",
-        description: "",
-        symptoms: "",
-        days: {monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false,},
+        // pillName: "",
+        // dose: "",
+        // quantity: "",
+        // refills: "",
+        // description: "",
+        // symptoms: "",
+        // days: { monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false, },
+        // days: []
     });
 
-    const handleCheckboxChange = (event) => {
-        const { name, checked } = event.target;
-        setNewPrescription((previousPrescription) => ({...previousPrescription,
-            days: {
-                ...previousPrescription.days,
-                [name]: checked,
-            },
-        }));
-    };
+    // const handleCheckboxChange = (event) => {
+    //     const { name, checked } = event.target;
+    //     setNewPrescription((previousPrescription) => ({
+    //         ...previousPrescription,
+    //         days: {
+    //             ...previousPrescription.days,
+    //             [name]: checked,
+    //         },
+    //     }));
+    //     console.log(name);
+    // };
 
-    
+
     // const handleClick = (event) => {
     //     event.preventDefault();
     //     props.addPrescription(newPrescription);
@@ -36,13 +39,19 @@ export function UploadForm(props) {
     //         //days: ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"],
     //     });
     // };
+    const [isChecked, setIsChecked] = useState(false);
+
+    const handleCheckboxChange = (event) => {
+        setIsChecked(!isChecked);
+
+    }
 
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div className="form-group upload-fields">
                     <label htmlFor="medName" className="col-sm-2 col-form-label">Medicine Name </label>
-                    <input 
+                    <input
                         type="text"
                         className="form-control"
                         name="pillName"
@@ -90,25 +99,41 @@ export function UploadForm(props) {
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Days</label>
-                    <div>
-                        {Object.keys(newPrescription.days).map((day) => (
-                        <div key={day} className="form-check form-check-inline">
-                            <input
+
+
+                    <div className="form-check form-check-inline">
+                        <input
                             className="form-check-input"
                             type="checkbox"
-                            name={day}
-                            checked={newPrescription.days[day]}
+                            name="monday"
+                            value="monday"
+                            checked={isChecked}
                             onChange={handleCheckboxChange}
-                            />
-                            <label className="form-check-label" htmlFor={day}>
-                                {day}
-                            </label>
-                        </div>
-                        ))}
+                        />
+                        <label className="form-check-label" htmlFor="monday">
+                            monday
+                        </label>
                     </div>
+
                 </div>
                 <button className="btn btn-primary">Submit</button>
             </form>
         </div>
     );
 }
+
+
+// {Object.keys(newPrescription.days).map((day) => (
+//     <div key={day} className="form-check form-check-inline">
+//         <input
+//             className="form-check-input"
+//             type="checkbox"
+//             name={day}
+//             checked={newPrescription.days[day]}
+//             onChange={handleCheckboxChange}
+//         />
+//         <label className="form-check-label" htmlFor={day}>
+//             {day}
+//         </label>
+//     </div>
+// ))}
