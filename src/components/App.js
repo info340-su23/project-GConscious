@@ -78,9 +78,9 @@ function App() {
       <main>
         <div className="container">
           <Routes>
-            <Route path="pillbox" element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
+            <Route index element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
-            <Route index element={<Search />} />
+            <Route path="search" element={<Search />} />
           </Routes>
         </div>
       </main>

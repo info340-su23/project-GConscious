@@ -23,10 +23,10 @@ export function NavBar() {
                             <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
                         </li> */}
                         <li className="nav-item">
-                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/pillbox">My Pillbox</NavLink>
+                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/">My Pillbox</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Search Page" className="nav-link" to="">Search</NavLink>
+                            <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                        </li>
