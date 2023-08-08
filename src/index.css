@@ -54,13 +54,13 @@ header {
   width: 100%;
   font-size: 16px;
   padding: 12px 20px 12px 10px;
-  border: 1px solid #c2ca1e;
+  border: 1px solid black;
   margin-bottom: 12px;
 }
 
 .search-input[type="text"],
 textarea {
-  background-color: #f4ff22;
+  background-color: white;
 }
 
 /* Rules for aspects of the searchable drug list */
@@ -82,8 +82,8 @@ textarea {
 }
 
 .searchable-drugs-ul li a:hover:not(.header) {
-  background-color: #f153bf;
-  border-color: #d341a5;
+  background-color: #7BDFF2;
+  border-color: #7BDFF2;
 }
 
 
