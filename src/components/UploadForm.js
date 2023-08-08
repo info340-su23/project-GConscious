@@ -52,54 +52,60 @@ export function UploadForm(props) {
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div className="form-group upload-fields">
-                    <label htmlFor="medName" className="col-sm-2 col-form-label">Medicine Name </label>
+                    <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name </label>
                     <input
                         type="text"
                         className="form-control"
                         name="pillName"
+                        id="pillName"
                         placeholder="Ex. Acetaminophen" />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Dose</label>
+                    <label htmlFor="dose" className="form-label">Dose</label>
                     <input
                         type="text"
                         className="form-control"
                         name="dose"
+                        id="dose"
                     />
                 </div>
-                <div className="mb-3">
+                <div htmlFor="quantity" className="mb-3">
                     <label className="form-label">Quantity</label>
                     <input
                         type="text"
                         className="form-control"
                         name="quantity"
+                        id="quantity"
                     />
                 </div>
-                <div className="mb-3">
+                <div htmlFor="refills" className="mb-3">
                     <label className="form-label">Refills</label>
                     <input
                         type="text"
                         className="form-control"
                         name="refills"
+                        id="refills"
                     />
                 </div>
                 <div className="mb-3">
-                    <label className="form-label">Description</label>
+                    <label htmlFor="description" className="form-label">Description</label>
                     <input
                         type="text"
                         className="form-control"
                         name="description"
+                        id="description"
                     />
                 </div>
-                <div className="mb-3">
+                <div htmlFor="symptoms" className="mb-3">
                     <label className="form-label">Symptoms</label>
                     <input
                         type="text"
                         className="form-control"
                         name="symptoms"
+                        id="symptoms"
                     />
                 </div>
-                <div className="mb-3">
+                <div htmlFor="days" className="mb-3">
                     <div>
                         <label className="form-label">Days </label>
                     </div>
@@ -111,6 +117,7 @@ export function UploadForm(props) {
                             value="monday"
                             checked={isChecked.monday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="monday">
                             monday
@@ -124,6 +131,7 @@ export function UploadForm(props) {
                             value="tuesday"
                             checked={isChecked.tuesday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="tuesday">
                             tuesday
@@ -137,6 +145,7 @@ export function UploadForm(props) {
                             value="wednesday"
                             checked={isChecked.wednesday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="wednesday">
                             wednesday
@@ -150,6 +159,7 @@ export function UploadForm(props) {
                             value="thursday"
                             checked={isChecked.thursday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="thursday">
                             thursday
@@ -163,6 +173,7 @@ export function UploadForm(props) {
                             value="friday"
                             checked={isChecked.friday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="friday">
                             friday
@@ -176,6 +187,7 @@ export function UploadForm(props) {
                             value="saturday"
                             checked={isChecked.saturday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="saturday">
                             saturday
@@ -189,6 +201,7 @@ export function UploadForm(props) {
                             value="sunday"
                             checked={isChecked.sunday}
                             onChange={handleCheckboxChange}
+                            id="days"
                         />
                         <label className="form-check-label" htmlFor="sunday">
                             sunday
