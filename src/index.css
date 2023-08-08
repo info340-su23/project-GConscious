@@ -1,11 +1,11 @@
 /* General styling rules that apply to every page*/
 body {
-  background-color: #EFF7F6;
+  background-color: #feffff;
 }
 
 /* nav rules */
 nav {
-  background-color: #7BDFF2;
+  background-color: #95f0f8;
 }
 
 .container-fluid .navbar-brand {
@@ -15,7 +15,7 @@ nav {
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: 120px;
-  color: #F7D6E0;
+  color: #000000;
   text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5)
 }
 
@@ -71,9 +71,9 @@ textarea {
 }
 
 .searchable-drugs-ul li a {
-  border: 1px solid #e3e796;
+  border: 1px solid #efe9b8;
   margin-top: -1px;
-  background-color: #fefff1;
+  background-color: #fffad4;
   padding: 12px;
   text-decoration: none;
   font-size: 10px;
@@ -82,8 +82,8 @@ textarea {
 }
 
 .searchable-drugs-ul li a:hover:not(.header) {
-  background-color: #7BDFF2;
-  border-color: #7BDFF2;
+  background-color: #ffd4f0;
+  border-color: #efb8e8;
 }
 
 
