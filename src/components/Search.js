@@ -1,15 +1,41 @@
 import React from 'react';
 
-export function Search({drugsList}) {
-
+function SearchRow({drugsList}) {
   //data
-  console.log(drugsList);
+  const drug_name = drugsList.drug_name;
+  const side_effects = drugsList.side_effects;
+  const drug_link = drugsList.drug_link;
 
   //appearance
+  return(
+    <li className='my-2'>
+        <a href={drug_link}>{drug_name}</a>
+        <ul>
+            <li>Side Effects: {side_effects}</li>
+        </ul>
+    </li>
+  )
+}
+
+export function Search({drugsList}) {
+  //data mapping
+  console.log(drugsList);
+  const drugArray = drugsList.map((searchRowObject) => {
+    const id = searchRowObject.drug_name
+    const searchRowElement = (
+        <SearchRow key={id} drugsList={searchRowObject} />
+    )
+    return searchRowElement;
+})
+
+  //appearence
   return (
     <div className='my-5'>
       <input type="text" className="search-input mb-3" placeholder="Type here to search for medications.." />
       <ul className="searchable-drugs-ul">
+        {drugArray}
+        {/* 
+        UNCOMMENT FOR SAMPLE DATA
         <li>
             <a href="#">Coumadin</a>
             <ul>
@@ -52,7 +78,7 @@ export function Search({drugsList}) {
                 <li>Description: manage and treat major depressive disorder, or obsessive-compulsive disorder</li>
                 <li>Symptoms: trouble staying focus, memory problems, cannot think clearly, have weakness, or lose your balance</li>
             </ul>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
