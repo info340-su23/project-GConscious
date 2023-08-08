@@ -1,4 +1,6 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+
 
 export function NavBar() {
     return (
@@ -10,20 +12,24 @@ export function NavBar() {
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
+                {/* <NavLink to='/pillbox'>My Pillbox</NavLink> */}
+                {/* <NavLink to='/upload'>upload</NavLink> */}
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    {/* 
+                    <NavLink to='/pillbox'>My Pillbox</NavLink>
+                    <NavLink to='/upload'>upload</NavLink> */}
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        {/* <li className="nav-item">
+                            <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
+                        </li> */}
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="">Home</a>
+                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/">My Pillbox</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="My Pillbox Page" className="nav-link" href="/pillbox">My Pillbox</a>
+                            <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
-                            <a aria-label="Search Page" className="nav-link" href="">Search</a>
-                        </li>
-                        <li className="nav-item">
-                            <a aria-label="Upload Meds Page" className="nav-link" href="/upload">Upload Meds</a>
-                        </li>
+                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                        </li>
                     </ul>
                 </div>
             </div>
