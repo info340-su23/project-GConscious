@@ -49,7 +49,7 @@ function App() {
 
     setPrescriptions(weeklyPills);
     event.target.reset();
-    navigate('pillbox');
+    navigate(index);
 
   }
 
