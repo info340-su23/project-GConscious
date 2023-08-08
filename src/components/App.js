@@ -11,7 +11,7 @@ import { useNavigate } from 'react-router-dom';
 
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
-function App() {
+function App({drugsList}) {
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
@@ -80,7 +80,7 @@ function App() {
           <Routes>
             <Route index element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
-            <Route path="search" element={<Search />} />
+            <Route path="search" element={<Search drugsList={drugsList} />} />
           </Routes>
         </div>
       </main>
