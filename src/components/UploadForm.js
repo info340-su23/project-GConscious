@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import {useLocation } from 'react-router-dom';
 
 export function UploadForm(props) {
 
@@ -11,17 +11,23 @@ export function UploadForm(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
+    const location = useLocation();
+    const urlParams = new URLSearchParams(location.search);
+    const fillDrugName = urlParams.get('drug');
+
     return (
         <div>
             <form onSubmit={props.handleSubmit}>
                 <div className="form-group upload-fields">
-                    <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name </label>
+                    <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name</label>
                     <input
                         type="text"
                         className="form-control"
                         name="pillName"
                         id="pillName"
-                        placeholder="Ex. Acetaminophen" />
+                        placeholder="Ex. Acetaminophen" 
+                        value={fillDrugName}/>
+
                 </div>
                 <div className="mb-3">
                     <label htmlFor="dose" className="form-label">Dose</label>
@@ -83,7 +89,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="monday" className="form-check-label" >
-                            monday
+                            Monday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -97,7 +103,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="tuesday" className="form-check-label">
-                            tuesday
+                            Tuesday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -111,7 +117,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="wednesday" className="form-check-label">
-                            wednesday
+                            Wednesday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -125,7 +131,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="thursday" className="form-check-label">
-                            thursday
+                            Thursday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -139,7 +145,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="friday" className="form-check-label">
-                            friday
+                            Friday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -153,7 +159,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="saturday" className="form-check-label">
-                            saturday
+                            Saturday
                         </label>
                     </div>
                     <div className="form-check form-check-inline">
@@ -167,7 +173,7 @@ export function UploadForm(props) {
                             id="days"
                         />
                         <label htmlFor="sunday" className="form-check-label">
-                            sunday
+                            Sunday
                         </label>
                     </div>
 

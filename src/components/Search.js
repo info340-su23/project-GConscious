@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function SearchRow({drugsList}) {
   //data
@@ -6,10 +8,16 @@ function SearchRow({drugsList}) {
   const side_effects = drugsList.side_effects;
   const drug_link = drugsList.drug_link;
 
+  const navigate = useNavigate();
+  const handleButtonClicked = () => {
+    navigate('/upload?drug=' + encodeURIComponent(drug_name));
+  };
+
   //appearance
   return(
     <li className='my-2'>
         <a href={drug_link}>{drug_name}</a>
+        <button onClick={handleButtonClicked}>Add to my Pillbox</button>
         <ul>
             <li>Side Effects: {side_effects}</li>
         </ul>
