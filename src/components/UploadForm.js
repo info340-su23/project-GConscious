@@ -11,6 +11,7 @@ export function UploadForm(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
+    // Get drug name from url parameter 
     const location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const fillDrugName = urlParams.get('drug');

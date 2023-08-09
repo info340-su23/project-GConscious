@@ -39,7 +39,7 @@ export function Search({drugsList}) {
   //appearence
   return (
     <div className='my-5'>
-      <input type="text" className="search-input mb-3" placeholder="Type here to search for medications.." />
+      <input type="text" className="form-control search-input mb-3" placeholder="Type here to search for medications.." />
       <ul className="searchable-drugs-ul">
         {drugArray}
         {/* 
