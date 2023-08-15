@@ -36,7 +36,7 @@ function PillboxContent(props) {
             return (
               <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
                 <div className="card my-2" style={{ width: '18rem' }}>
-                  <img src={require('../days/' + day + '.png')} alt="React Image" />
+                  <img src={'/days/img/' + day + '.png'} alt="React Image" />
                   <Accordion defaultActiveKey="1">
                     <Accordion.Item eventKey="0">
                       <Accordion.Header>No Pills For Today!</Accordion.Header>
@@ -52,7 +52,7 @@ function PillboxContent(props) {
             return (
               <div key={day} className="col-12 col-md-6 col-lg-4 d-flex align-items-start">
                 <div className="card my-2" style={{ width: '18rem' }}>
-                  <img src={require('../days/' + day + '.png')} alt="React Image" />
+                  <img src={'/days/img/' + day + '.png'} alt="React Image" />
                   <Accordion defaultActiveKey="1">
                     <PillItems handleRemove={props.handleRemove} day={day} weeklyPills={weeklyPills} />
                   </Accordion>
