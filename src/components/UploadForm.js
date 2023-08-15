@@ -14,6 +14,7 @@ export function UploadForm(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
@@ -108,7 +109,7 @@ export function UploadForm(props) {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="symptoms" className="form-label">Side Effects</label>
+                    <label htmlFor="symptoms" className="form-label">Symptoms</label>
                     <input
                         type="text"
                         className="form-control"
@@ -134,23 +135,24 @@ function Checkboxes(props) {
     const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
     const checks = daysOfTheWeek.map(day => {
         return (
-            <div key={day} className="form-check form-check-inline">
+            <div className="form-check form-check-inline">
                 <input
                     className="form-check-input"
                     type="checkbox"
-                    name="monday"
-                    value="monday"
+                    name={day}
+                    value={day}
                     checked={isChecked[day]}
                     onChange={handleCheckboxChange}
                     id="days"
                 />
-                <label htmlFor={day} className="form-check-label" >
+                <label htmlFor="monday" className="form-check-label" >
                     {day}
                 </label>
             </div>
         )
 
     })
+
     return (
         <div>
             {checks}
