@@ -57,7 +57,7 @@ export function UploadForm(props) {
     const location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const fillDrugName = urlParams.get('drug');
-    const side_effects = urlParams.get('side_effects');
+    const sideEffects = urlParams.get('side_effects');
 
     return (
         <div>
@@ -115,6 +115,7 @@ export function UploadForm(props) {
                         className="form-control"
                         name="symptoms"
                         id="symptoms"
+                        value={sideEffects}
                     />
                 </div>
                 <div className="mb-3">
