@@ -15,43 +15,43 @@ export function UploadForm(props) {
     }
 
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    // const handleSubmit = (event) => {
+    //     event.preventDefault();
 
-        // Grab Form Values and create new prescription
-        const pillName = event.target.pillName.value;
-        const dose = Number(event.target.dose.value);
-        const quantity = Number(event.target.quantity.value);
-        const refills = Number(event.target.refills.value);
-        const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-        const daysArray = [];
-        days.forEach(day => {
-            if (event.target[day].checked === true) {
-                daysArray.push(event.target[day].value);
-            }
-        })
-        const description = event.target.description.value;
-        const symptoms = event.target.symptoms.value;
-        const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
+    //     // Grab Form Values and create new prescription
+    //     const pillName = event.target.pillName.value;
+    //     const dose = Number(event.target.dose.value);
+    //     const quantity = Number(event.target.quantity.value);
+    //     const refills = Number(event.target.refills.value);
+    //     const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    //     const daysArray = [];
+    //     days.forEach(day => {
+    //         if (event.target[day].checked === true) {
+    //             daysArray.push(event.target[day].value);
+    //         }
+    //     })
+    //     const description = event.target.description.value;
+    //     const symptoms = event.target.symptoms.value;
+    //     const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
 
-        // Add on to current userData and setUser data
-        const newUserPrescription = [...props.userPrescription, newPrescription];
-        // setUserPrescription(newUserPrescription);
-        props.handleSetUserPrescriptions(newUserPrescription);
+    //     // Add on to current userData and setUser data
+    //     const newUserPrescription = [...props.userPrescription, newPrescription];
+    //     // setUserPrescription(newUserPrescription);
+    //     props.handleSetUserPrescriptions(newUserPrescription);
 
-        //Create new weekly prescriptions with current userData pills. Set the new prescription. 
-        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
-        newUserPrescription.forEach(pillObj => {
-            pillObj.days.forEach(day => {
-                weeklyPills[day].push(pillObj)
-            });
-        });
+    //     //Create new weekly prescriptions with current userData pills. Set the new prescription. 
+    //     const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+    //     newUserPrescription.forEach(pillObj => {
+    //         pillObj.days.forEach(day => {
+    //             weeklyPills[day].push(pillObj)
+    //         });
+    //     });
 
-        props.handleSetOrganizedPillbox(weeklyPills);
-        event.target.reset();
-        navigate('/');
+    //     props.handleSetOrganizedPillbox(weeklyPills);
+    //     event.target.reset();
+    //     navigate('/');
 
-    }
+    // }
 
     // Get drug name from url parameter 
     const location = useLocation();
