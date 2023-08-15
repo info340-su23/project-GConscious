@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-//import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export function UploadForm(props) {
 
     const [isChecked, setIsChecked] = useState({ monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false });
-    //const navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleCheckboxChange = (event) => {
         const { name } = event.target;
@@ -15,43 +15,43 @@ export function UploadForm(props) {
     }
 
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
 
-    //     // Grab Form Values and create new prescription
-    //     const pillName = event.target.pillName.value;
-    //     const dose = Number(event.target.dose.value);
-    //     const quantity = Number(event.target.quantity.value);
-    //     const refills = Number(event.target.refills.value);
-    //     const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-    //     const daysArray = [];
-    //     days.forEach(day => {
-    //         if (event.target[day].checked === true) {
-    //             daysArray.push(event.target[day].value);
-    //         }
-    //     })
-    //     const description = event.target.description.value;
-    //     const symptoms = event.target.symptoms.value;
-    //     const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
+        // Grab Form Values and create new prescription
+        const pillName = event.target.pillName.value;
+        const dose = Number(event.target.dose.value);
+        const quantity = Number(event.target.quantity.value);
+        const refills = Number(event.target.refills.value);
+        const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+        const daysArray = [];
+        days.forEach(day => {
+            if (event.target[day].checked === true) {
+                daysArray.push(event.target[day].value);
+            }
+        })
+        const description = event.target.description.value;
+        const symptoms = event.target.symptoms.value;
+        const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
 
-    //     // Add on to current userData and setUser data
-    //     const newUserPrescription = [...props.userPrescription, newPrescription];
-    //     // setUserPrescription(newUserPrescription);
-    //     props.handleSetUserPrescriptions(newUserPrescription);
+        // Add on to current userData and setUser data
+        const newUserPrescription = [...props.userPrescription, newPrescription];
+        // setUserPrescription(newUserPrescription);
+        props.handleSetUserPrescriptions(newUserPrescription);
 
-    //     //Create new weekly prescriptions with current userData pills. Set the new prescription. 
-    //     const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
-    //     newUserPrescription.forEach(pillObj => {
-    //         pillObj.days.forEach(day => {
-    //             weeklyPills[day].push(pillObj)
-    //         });
-    //     });
+        //Create new weekly prescriptions with current userData pills. Set the new prescription. 
+        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+        newUserPrescription.forEach(pillObj => {
+            pillObj.days.forEach(day => {
+                weeklyPills[day].push(pillObj)
+            });
+        });
 
-    //     props.handleSetOrganizedPillbox(weeklyPills);
-    //     event.target.reset();
-    //     navigate('/');
+        props.handleSetOrganizedPillbox(weeklyPills);
+        event.target.reset();
+        navigate('/');
 
-    // }
+    }
 
     // Get drug name from url parameter 
     const location = useLocation();
@@ -109,117 +109,19 @@ export function UploadForm(props) {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="symptoms" className="form-label">Symptoms</label>
+                    <label htmlFor="symptoms" className="form-label">Side Effects</label>
                     <input
                         type="text"
                         className="form-control"
                         name="symptoms"
                         id="symptoms"
-                        value={side_effects}
                     />
                 </div>
                 <div className="mb-3">
                     <div>
                         <label htmlFor="days" className="form-label">Days </label>
                     </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="monday"
-                            value="monday"
-                            checked={isChecked.monday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="monday" className="form-check-label" >
-                            Monday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="tuesday"
-                            value="tuesday"
-                            checked={isChecked.tuesday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="tuesday" className="form-check-label">
-                            Tuesday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="wednesday"
-                            value="wednesday"
-                            checked={isChecked.wednesday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="wednesday" className="form-check-label">
-                            Wednesday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="thursday"
-                            value="thursday"
-                            checked={isChecked.thursday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="thursday" className="form-check-label">
-                            Thursday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="friday"
-                            value="friday"
-                            checked={isChecked.friday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="friday" className="form-check-label">
-                            Friday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="saturday"
-                            value="saturday"
-                            checked={isChecked.saturday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="saturday" className="form-check-label">
-                            Saturday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="sunday"
-                            value="sunday"
-                            checked={isChecked.sunday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="sunday" className="form-check-label">
-                            Sunday
-                        </label>
-                    </div>
+                    <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
                 </div>
                 <button className="btn btn-primary">Submit</button>
             </form>
@@ -227,33 +129,33 @@ export function UploadForm(props) {
     );
 }
 
-// function Checkboxes(props) {
-//     const isChecked = props.isChecked;
-//     const handleCheckboxChange = props.handleCheckboxChange;
-//     const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-//     const checks = daysOfTheWeek.map(day => {
-//         return (
-//             <div className="form-check form-check-inline">
-//                 <input
-//                     className="form-check-input"
-//                     type="checkbox"
-//                     name={day}
-//                     value={day}
-//                     checked={isChecked[day]}
-//                     onChange={handleCheckboxChange}
-//                     id="days"
-//                 />
-//                 <label htmlFor="monday" className="form-check-label" >
-//                     {day}
-//                 </label>
-//             </div>
-//         )
+function Checkboxes(props) {
+    const isChecked = props.isChecked;
+    const handleCheckboxChange = props.handleCheckboxChange;
+    const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    const checks = daysOfTheWeek.map(day => {
+        return (
+            <div className="form-check form-check-inline">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name={day}
+                    value={day}
+                    checked={isChecked[day]}
+                    onChange={handleCheckboxChange}
+                    id="days"
+                />
+                <label htmlFor="monday" className="form-check-label" >
+                    {day}
+                </label>
+            </div>
+        )
 
-//     })
+    })
 
-//     return (
-//         <div>
-//             {checks}
-//         </div>
-//     )
-// }
+    return (
+        <div>
+            {checks}
+        </div>
+    )
+}
