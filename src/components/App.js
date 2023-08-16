@@ -4,20 +4,29 @@ import { Footer } from './Footer.js';
 import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
 import { Search } from './Search.js';
-import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 //import { add } from 'lodash';
 import { useNavigate } from 'react-router-dom';
 import { Notifications } from 'react-push-notification';
 import addNotification from 'react-push-notification';
 
-
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
 
-function App({drugsList}) {
+function App({ drugsList }) {
+  //Organized pillbox with pills on specific days based on user prescription.
+  //const [organizedPillbox, setOrganizedPillbox] = useState({ monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] });
+  //User's pool of prescribed pills. Each with description, side effects, which days to take, dosage, etc.
   const [prescriptions, setPrescriptions] = useState(weeklyPills);
   const [userData, setUserData] = useState([]);
   const navigate = useNavigate();
 
+  // const handleSetUserPrescriptions = (newUserPrescription) => {
+  //   setUserPrescription(newUserPrescription);
+  // }
+
+  // const handleSetOrganizedPillbox = (weeklyPills) => {
+  //   setOrganizedPillbox(weeklyPills);
+  // }
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -86,6 +95,7 @@ function App({drugsList}) {
     setPrescriptions(newWeekPrescriptions);
   };
 
+
   return (
     <div>
       <Notifications position='top-right' />
@@ -93,6 +103,8 @@ function App({drugsList}) {
       <main>
         <div className="container">
           <Routes>
+            {/* <Route index element={<PillboxRow organizedPillbox={organizedPillbox} handleSetOrganizedPillbox={handleSetOrganizedPillbox} />} />
+            <Route path="upload" element={<UploadForm handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} /> */}
             <Route index element={<PillboxRow weeklyPills={prescriptions} handleRemove={handleRemove} />} />
             <Route path="upload" element={<UploadForm handleSubmit={handleSubmit} />} />
             <Route path="search" element={<Search drugsList={drugsList} />} />

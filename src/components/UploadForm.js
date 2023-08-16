@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import {useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useNavigate } from 'react-router-dom';
+
 
 export function UploadForm(props) {
 
     const [isChecked, setIsChecked] = useState({ monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false });
+    const navigate = useNavigate();
 
     const handleCheckboxChange = (event) => {
-        const { name, checked } = event.target;
+        const { name } = event.target;
         const switchCheck = { [name]: !(isChecked[name]) }
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
-    //Fill medicine name from search page. Retrieves drug name from url parameter 
+    // Get drug name from url parameter 
     const location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const fillDrugName = urlParams.get('drug');
+    const sideEffects = urlParams.get('side_effects');
 
+    //Custom form validation in progress
     // useEffect(() => {
     //     const uploadForm = document.querySelector('.needs-validation');
     
@@ -90,120 +95,54 @@ export function UploadForm(props) {
                     />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="symptoms" className="form-label">Symptoms</label>
+                    <label htmlFor="symptoms" className="form-label">Side Effects</label>
                     <input
                         type="text"
                         className="form-control"
                         name="symptoms"
                         id="symptoms"
+                        value={sideEffects}
                     />
                 </div>
                 <div className="mb-3">
                     <div>
                         <label htmlFor="days" className="form-label">Days </label>
                     </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="monday"
-                            value="monday"
-                            checked={isChecked.monday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="monday" className="form-check-label" >
-                            Monday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="tuesday"
-                            value="tuesday"
-                            checked={isChecked.tuesday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="tuesday" className="form-check-label">
-                            Tuesday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="wednesday"
-                            value="wednesday"
-                            checked={isChecked.wednesday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="wednesday" className="form-check-label">
-                            Wednesday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="thursday"
-                            value="thursday"
-                            checked={isChecked.thursday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="thursday" className="form-check-label">
-                            Thursday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="friday"
-                            value="friday"
-                            checked={isChecked.friday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="friday" className="form-check-label">
-                            Friday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="saturday"
-                            value="saturday"
-                            checked={isChecked.saturday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="saturday" className="form-check-label">
-                            Saturday
-                        </label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input
-                            className="form-check-input"
-                            type="checkbox"
-                            name="sunday"
-                            value="sunday"
-                            checked={isChecked.sunday}
-                            onChange={handleCheckboxChange}
-                            id="days"
-                        />
-                        <label htmlFor="sunday" className="form-check-label">
-                            Sunday
-                        </label>
-                    </div>
-
+                    <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
                 </div>
                 <button className="btn btn-primary">Submit</button>
             </form>
         </div>
     );
+}
+
+function Checkboxes(props) {
+    const isChecked = props.isChecked;
+    const handleCheckboxChange = props.handleCheckboxChange;
+    const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+    const checks = daysOfTheWeek.map(day => {
+        return (
+            <div className="form-check form-check-inline">
+                <input
+                    className="form-check-input"
+                    type="checkbox"
+                    name={day}
+                    value={day}
+                    checked={isChecked[day]}
+                    onChange={handleCheckboxChange}
+                    id="days"
+                />
+                <label htmlFor="monday" className="form-check-label" >
+                    {day}
+                </label>
+            </div>
+        )
+
+    })
+
+    return (
+        <div>
+            {checks}
+        </div>
+    )
 }
