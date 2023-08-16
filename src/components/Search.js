@@ -60,7 +60,7 @@ export function Search() {
             const filteredData = data.filter((item) =>
               item.drug_name.includes(query)
             );
-            resolve(filteredData);
+            resolve(query === '' ? [] : filteredData);
           })
           .catch((error) => {
             console.error("Error fetching search results:", error);
