@@ -99,5 +99,10 @@ export function Search() {
     </div>
   );
 
-  return searchResult;
+  return (
+    <div>
+      {searchResult}
+      <small>Search Dataset via <a href="https://www.kaggle.com/datasets/jithinanievarghese/drugs-side-effects-and-medical-condition" target="_blank">Link</a>.</small>
+    </div>
+  )
 }
