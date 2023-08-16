@@ -7,6 +7,8 @@ import { Search } from './Search.js';
 import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 //import { add } from 'lodash';
 import { useNavigate } from 'react-router-dom';
+import { Notifications } from 'react-push-notification';
+import addNotification from 'react-push-notification';
 
 
 const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
@@ -49,7 +51,19 @@ function App({drugsList}) {
 
     setPrescriptions(weeklyPills);
     event.target.reset();
-    navigate('/');
+
+    addNotification({
+      title: 'Success',
+      subtitle: 'Added ' + pillName,
+      theme: 'light',
+      backgroundTop:'lightgreen',
+      backgroundBottom: 'green',
+      closeButton:'X',
+      message: 'Your Pillbox has been updated.',
+      duration: 4000,
+    });
+
+    // navigate('/');
 
   }
 
@@ -74,6 +88,7 @@ function App({drugsList}) {
 
   return (
     <div>
+      <Notifications position='top-right' />
       <Header />
       <main>
         <div className="container">

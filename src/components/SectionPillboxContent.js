@@ -16,7 +16,7 @@ function PillItems(props) {
             <p>{"Next Refill: " + pillObj.refills + " weeks left. "}</p>
             <p>{"Description: " + pillObj.description}</p>
             <p>{"Symptoms: " + pillObj.symptoms}</p>
-            <button name={pillObj.pillName} value={day} onClick={props.handleRemove}>remove</button>
+            <button name={pillObj.pillName} value={day} onClick={props.handleRemove}>Remove</button>
           </Accordion.Body>
         </Accordion.Item>
       </Accordion>
