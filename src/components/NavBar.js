@@ -1,8 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import {signOut } from "firebase/auth";
 
 
 export function NavBar() {
+    const auth = getAuth();
+    const handleLogout = () => {               
+        signOut(auth).then(() => {
+          // Sign-out successful.
+        }).catch((error) => {
+          // An error happened.
+        });
+    }
     return (
         <nav className="navbar navbar-expand-lg py-0">
             <div className="container-fluid">
@@ -29,7 +39,13 @@ export function NavBar() {
                             <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                        </li>
+                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>
+                            </li>
+                            <li>
+        			<button onClick={handleLogout}>
+                        Logout
+                    </button>
+                            </li>
                     </ul>
                 </div>
             </div>

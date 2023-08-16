@@ -2,11 +2,13 @@ import React, { useEffect } from 'react';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 import DEFAULT_USERS from '../data/users.json';
 
 export default function SignInPage(props) {
+    const navigate = useNavigate();
     const firebaseUiConfig = {
         signInOptions: [
             {
@@ -28,7 +30,9 @@ export default function SignInPage(props) {
 
         const auth = getAuth();
         onAuthStateChanged(auth, (firebaseUserObj) => {
-            console.log("auth state changed");
+            if (firebaseUserObj === null) {
+                navigate("/");
+            } else {
             const user = DEFAULT_USERS.filter((userObj) => {
                 return userObj.userId === firebaseUserObj.displayName;
             })
@@ -44,7 +48,9 @@ export default function SignInPage(props) {
             props.handleSetOrganizedPillbox(weeklyPills);
             console.log(props.handleSetUser);
             props.handleSetUser(user[0]);
+            navigate("/mypillbox");
 
+        }
         })
 
 
