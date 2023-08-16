@@ -1,18 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import {signOut } from "firebase/auth";
 
 
 export function NavBar() {
-    const auth = getAuth();
-    const handleLogout = () => {               
-        signOut(auth).then(() => {
-          // Sign-out successful.
-        }).catch((error) => {
-          // An error happened.
-        });
-    }
     return (
         <nav className="navbar navbar-expand-lg py-0">
             <div className="container-fluid">
@@ -29,23 +19,17 @@ export function NavBar() {
                     <NavLink to='/pillbox'>My Pillbox</NavLink>
                     <NavLink to='/upload'>upload</NavLink> */}
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                        {/* <li className="nav-item">
+                            <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
+                        </li> */}
                         <li className="nav-item">
-                            <NavLink className="nav-link active" aria-current="page" to="/">Home</NavLink>
-                        </li>
-                        <li className="nav-item">
-                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/mypillbox">My Pillbox</NavLink>
+                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/">My Pillbox</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>
-                            </li>
-                            <li>
-        			<button onClick={handleLogout}>
-                        Logout
-                    </button>
-                            </li>
+                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                        </li>
                     </ul>
                 </div>
             </div>

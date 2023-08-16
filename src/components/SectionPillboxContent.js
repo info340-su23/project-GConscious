@@ -44,7 +44,7 @@ function PillItems(props) {
       {organized}
     </div>
   )
-
+  
 }
 function AccordionItemsNoPills(props) {
   return (
@@ -59,10 +59,8 @@ function AccordionItemsNoPills(props) {
 }
 
 function PillboxContent(props) {
-  const currentUser = props.currentUser;
   const organizedPillbox = props.organizedPillbox;
   const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-  console.log(currentUser);
 
   const organized =
     daysOfTheWeek.map(day => {
@@ -83,13 +81,10 @@ function PillboxContent(props) {
     })
 
   return (
-    <div>
-      <h1>{"Welcome " + currentUser.userId + "! Here are your week's pills"} </h1>
-      <div className="row my-4">
-        {
-          organized
-        }
-      </div>
+    <div className="row my-4">
+      {
+        organized
+      }
     </div>
   );
 }
@@ -98,7 +93,7 @@ function PillboxContent(props) {
 export function PillboxRow(props) {
   const organizedPillbox = props.organizedPillbox
   return (
-    <PillboxContent currentUser={props.currentUser} handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} organizedPillbox={organizedPillbox} />
+    <PillboxContent handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} organizedPillbox={organizedPillbox} />
     //<PillboxContent handleRemove={props.handleRemove} weeklyPills={weeklyPills} />
   )
 
