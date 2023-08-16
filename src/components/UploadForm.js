@@ -1,13 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-// import 'bootstrap/dist/css/bootstrap.min.css';
-// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useNavigate } from 'react-router-dom';
 
 
 export function UploadForm(props) {
 
-    const [isChecked, setIsChecked] = useState({ monday: false, tuesday: false, wednesday: false, thursday: false, friday: false, saturday: false, sunday: false });
+    const [isChecked, setIsChecked] = useState({
+      monday: false,
+      tuesday: false,
+      wednesday: false,
+      thursday: false,
+      friday: false,
+      saturday: false,
+      sunday: false,
+    });
     const navigate = useNavigate();
 
     const handleCheckboxChange = (event) => {
@@ -96,6 +102,7 @@ export function UploadForm(props) {
                         className="form-control"
                         name="dose"
                         id="dose"
+                        placeholder="Ex. Three times per day"
                         required
                     />
                     {/* <div class="invalid-feedback">Please provide a dosage.</div> */}
