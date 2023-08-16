@@ -79,6 +79,39 @@ export function Search() {
     return searchRowElement;
   });
 
+  //example links
+  const defaultLinks = (
+    <div>
+      <p>Example prescriptions</p>
+      <ul>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a696005.html" target="_blank">Metformin</a>
+        </li>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a692030.html" target="_blank">Simvastatin</a>
+        </li>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a605045.html" target="_blank">Pregabalin</a>
+        </li>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a692051.html" target="_blank">Lisinopril</a>
+        </li>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a682864.html" target="_blank">Metoprolol</a>
+        </li>
+        <li className="my-3">
+          <a href="https://medlineplus.gov/druginfo/meds/a695033.html" target="_blank">Metoprolol</a>
+        </li>
+      </ul>
+    </div>
+  );
+
+  const content = loading ? (
+    <li>{text}</li>
+  ) : (
+    searchResults.length > 0 ? drugArray : defaultLinks
+  );
+
   //Search result
   const searchResult = (
     <div className="my-5">
@@ -90,11 +123,7 @@ export function Search() {
         value={searchTerm}
       />
       <ul className="searchable-drugs-ul">
-        {loading ? (
-          <li>{text}</li>
-        ) : (
-          drugArray
-        )}
+        {content}
       </ul>
     </div>
   );

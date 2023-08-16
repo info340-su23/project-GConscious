@@ -1,0 +1,54 @@
+[
+  {
+    "userId": "John",
+    "prescriptions": [
+      {
+        "pillName": "tylenol",
+        "dose": 3,
+        "quantity": 40,
+        "refills": 6,
+        "days": [
+          "monday",
+          "tuesday",
+          "wednesday"
+        ],
+        "description": "for headaches",
+        "symptoms": "none"
+      }
+    ]
+  },
+  {
+    "userId": "Jane",
+    "prescriptions": [
+      {
+        "pillName": "chill pill",
+        "dose": 3,
+        "quantity": 40,
+        "refills": 6,
+        "days": [
+          "saturday",
+          "sunday"
+        ],
+        "description": "for headaches",
+        "symptoms": "none"
+      }
+    ]
+  },
+  {
+    "userId": "null",
+    "prescriptions": [
+      {
+        "pillName": "hangover pill",
+        "dose": 3,
+        "quantity": 40,
+        "refills": 6,
+        "days": [
+          "thursday",
+          "wednesday"
+        ],
+        "description": "for headaches",
+        "symptoms": "none"
+      }
+    ]
+  }
+]
