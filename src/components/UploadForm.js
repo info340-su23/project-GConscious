@@ -16,6 +16,44 @@ export function UploadForm(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        // Grab Form Values and create new prescription
+        const pillName = event.target.pillName.value;
+        const dose = Number(event.target.dose.value);
+        const quantity = Number(event.target.quantity.value);
+        const refills = Number(event.target.refills.value);
+        const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+        const daysArray = [];
+        days.forEach(day => {
+            if (event.target[day].checked === true) {
+                daysArray.push(event.target[day].value);
+            }
+        })
+        const description = event.target.description.value;
+        const symptoms = event.target.symptoms.value;
+        const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
+
+        // Add on to current userData and setUser data
+        const newUserPrescription = [...props.userPrescription, newPrescription];
+        // setUserPrescription(newUserPrescription);
+        props.handleSetUserPrescriptions(newUserPrescription);
+
+        //Create new weekly prescriptions with current userData pills. Set the new prescription. 
+        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+        newUserPrescription.forEach(pillObj => {
+            pillObj.days.forEach(day => {
+                weeklyPills[day].push(pillObj)
+            });
+        });
+
+        props.handleSetOrganizedPillbox(weeklyPills);
+        event.target.reset();
+        navigate('/');
+
+    }
+
     // Get drug name from url parameter 
     const location = useLocation();
     const urlParams = new URLSearchParams(location.search);
@@ -38,7 +76,7 @@ export function UploadForm(props) {
     
     return (
         <div>
-            <form onSubmit={props.handleSubmit} >
+            <form onSubmit={handleSubmit} >
                 <div className="form-group upload-fields">
                     <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name</label>
                     <input
