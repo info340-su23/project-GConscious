@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {useLocation } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
 export function UploadForm(props) {
 
@@ -11,14 +13,27 @@ export function UploadForm(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
-    // Get drug name from url parameter 
+    //Fill medicine name from search page. Retrieves drug name from url parameter 
     const location = useLocation();
     const urlParams = new URLSearchParams(location.search);
     const fillDrugName = urlParams.get('drug');
 
+    // useEffect(() => {
+    //     const uploadForm = document.querySelector('.needs-validation');
+    
+    //     uploadForm.addEventListener('submit', function (event) {
+    //         if (!uploadForm.checkValidity()) {
+    //             event.preventDefault();
+    //             event.stopPropagation();
+    //         }
+    //         uploadForm.classList.add('was-validated');
+    //     });
+    // }, []);
+    
+    
     return (
         <div>
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.handleSubmit} >
                 <div className="form-group upload-fields">
                     <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name</label>
                     <input
@@ -27,8 +42,9 @@ export function UploadForm(props) {
                         name="pillName"
                         id="pillName"
                         placeholder="Ex. Acetaminophen" 
-                        value={fillDrugName}/>
-
+                        value={fillDrugName}
+                        required/>
+                    {/* <div class="invalid-feedback">Please provide a name.</div> */}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="dose" className="form-label">Dose</label>
@@ -37,7 +53,10 @@ export function UploadForm(props) {
                         className="form-control"
                         name="dose"
                         id="dose"
+                        required
                     />
+                    {/* <div class="invalid-feedback">Please provide a dosage.</div> */}
+
                 </div>
                 <div className="mb-3">
                     <label htmlFor="quantity" className="form-label">Quantity</label>
@@ -46,7 +65,9 @@ export function UploadForm(props) {
                         className="form-control"
                         name="quantity"
                         id="quantity"
+                        required
                     />
+                    {/* <div class="invalid-feedback">Please provide a quantity.</div> */}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="refills" className="form-label">Refills</label>
@@ -55,7 +76,9 @@ export function UploadForm(props) {
                         className="form-control"
                         name="refills"
                         id="refills"
+                        required
                     />
+                    {/* <div class="invalid-feedback">Please provide the amount of refills.</div> */}
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
