@@ -50,7 +50,7 @@ export function UploadForm(props) {
 
         props.handleSetOrganizedPillbox(weeklyPills);
         event.target.reset();
-        navigate('/');
+        navigate('/mypillbox');
 
     }
 

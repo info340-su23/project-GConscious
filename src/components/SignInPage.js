@@ -1,6 +1,4 @@
 import React, { useEffect } from 'react';
-
-import Dropdown from 'react-bootstrap/Dropdown';
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
@@ -44,11 +42,8 @@ export default function SignInPage(props) {
                 });
             });
             props.handleSetOrganizedPillbox(weeklyPills);
+            console.log(props.handleSetUser);
             props.handleSetUser(user[0]);
-            if (user) {
-                window.location = '/mypillbox'; //After successful login, user will be redirected to home.html
-            }
-
 
         })
 
