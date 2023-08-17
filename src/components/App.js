@@ -3,6 +3,7 @@ import { Header } from './Header.js';
 import { Footer } from './Footer.js';
 import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
+import { Reorganize } from './Reorganize.js';
 import { Search } from './Search.js';
 import { Route, Routes } from "react-router-dom";
 import { Login } from './login.js';
@@ -27,6 +28,7 @@ function App({ drugsList }) {
   const handleSetUser = (userName) => {
     setCurrentUser(userName);
   }
+
   console.log(currentUser);
 
   return (
