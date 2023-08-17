@@ -1,21 +1,52 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function Reorganize(props) {
     // Grab passd down current Prescriptions and list them out for user
-    console.log(props.userPrescription);
+    let userPrescription = props.userPrescription;
 
     // Have user select which pill to adjust days
+    const [isChecked, setIsChecked] = useState({
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false,
+    });
+
+    const handleCheckboxChange = (event) => {
+        const { name } = event.target;
+        const switchCheck = { [name]: !(isChecked[name]) }
+        setIsChecked({ ...isChecked, ...switchCheck });
+    }
 
     // Grab pillobj[days] in the following format: const newPrescription = {pillName: pillName, dose: dose, quantity: quantity}
 
-
     // Re-assign/replace days with user's chosen days
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+
+        const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+        const daysArray = [];
+        days.forEach(day => {
+            if (event.target[day].checked === true) {
+                daysArray.push(event.target[day].value);
+            }
+        })
+
+
+    }
+
     // setUserPrescription with modified pill
+    props.handleSetUserPrescriptions(newUserPrescription);
+
     // props.handleSetUserPrescriptions(newUserPrescription);
 
     return(
         <>
+            <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
         </>
     )
 }
