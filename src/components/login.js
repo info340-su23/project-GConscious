@@ -1,14 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 
 export function Login(props) {
+    const [logged, setIsLogged] = useState(false)
+
+    const handleSetIsLogged = (changeLogStatus) => {
+        setIsLogged(changeLogStatus);
+    }
+
+    return (
+
+
+        <div>
+            {logged ? (
+                <Redirecting />
+            ) : (
+                <SignInForm handleSetIsLogged={handleSetIsLogged} handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} handleSetUser={props.handleSetUser} handleSetUserPrescriptions={props.handleSetUserPrescriptions} />
+
+            )}
+        </div>
+
+    )
+}
+
+function SignInForm(props) {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const navigate = useNavigate();
-    // console.log(DEFAULT_USERS);
     const ProceedLogin = (e) => {
         e.preventDefault();
         if (validate()) {
@@ -48,7 +67,7 @@ export function Login(props) {
                     props.handleSetOrganizedPillbox(weeklyPills);
                     props.handleSetUser(user[0].user);
                     props.handleSetUserPrescriptions(user[0].prescriptions);
-                    navigate('/');
+                    props.handleSetIsLogged(true);
 
                 }).catch((error) => {
                     toast.error('Failed to Login due to : ' + error.message)
@@ -57,6 +76,7 @@ export function Login(props) {
 
         }
     }
+
 
     const validate = () => {
         let result = true;
@@ -71,8 +91,8 @@ export function Login(props) {
         return result;
     }
 
-    return (
 
+    return (
         <div className='row'>
             <ToastContainer />
             <div className='offset-lg-3 col-lg-6'>
@@ -99,6 +119,21 @@ export function Login(props) {
             </div>
         </div>
 
+    )
+}
+
+function Redirecting(props) {
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        setTimeout(() => {
+            navigate('/');
+        }, 2000)
+    })
+    return (
+        <div className='row'>
+            <h1>Redirecting you your prescription!</h1>
+        </div>
     )
 }
 
