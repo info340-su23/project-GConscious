@@ -19,8 +19,6 @@ export function Reorganize(props) {
     )
 }
 
-{/* <Route path="reorganize" element={<Reorganize handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} /> */}
-
 function Checkboxes(props) {
     const isChecked = props.isChecked;
     const handleCheckboxChange = props.handleCheckboxChange;

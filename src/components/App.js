@@ -38,6 +38,7 @@ function App({ drugsList }) {
             <Route index element={<PillboxRow organizedPillbox={organizedPillbox} handleSetOrganizedPillbox={handleSetOrganizedPillbox} currentUser={currentUser} />} />
             <Route path="upload" element={<UploadForm handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} />
             <Route path="search" element={<Search drugsList={drugsList} />} />
+            <Route path="reorganize" element={<Reorganize handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} />
             <Route path='login' element={<Login handleSetUser={handleSetUser} handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} />} />
           </Routes>
         </div>
