@@ -27,7 +27,7 @@ function App({ drugsList }) {
     setCurrentUser(userName);
   }
 
-  console.log(currentUser);
+  console.log(userPrescription);
 
   return (
     <div>

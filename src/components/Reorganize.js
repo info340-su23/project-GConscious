@@ -2,6 +2,7 @@ import React from 'react';
 
 export function Reorganize(props) {
     // Grab passd down current Prescriptions and list them out for user
+    console.log(props.userPrescription);
 
     // Have user select which pill to adjust days
 
