@@ -6,13 +6,13 @@ import { useNavigate } from 'react-router-dom';
 export function UploadForm(props) {
 
     const [isChecked, setIsChecked] = useState({
-      monday: false,
-      tuesday: false,
-      wednesday: false,
-      thursday: false,
-      friday: false,
-      saturday: false,
-      sunday: false,
+        monday: false,
+        tuesday: false,
+        wednesday: false,
+        thursday: false,
+        friday: false,
+        saturday: false,
+        sunday: false,
     });
     const navigate = useNavigate();
 
@@ -69,7 +69,7 @@ export function UploadForm(props) {
     //Custom form validation in progress
     // useEffect(() => {
     //     const uploadForm = document.querySelector('.needs-validation');
-    
+
     //     uploadForm.addEventListener('submit', function (event) {
     //         if (!uploadForm.checkValidity()) {
     //             event.preventDefault();
@@ -78,8 +78,8 @@ export function UploadForm(props) {
     //         uploadForm.classList.add('was-validated');
     //     });
     // }, []);
-    
-    
+
+
     return (
         <div>
             <form onSubmit={handleSubmit} >
@@ -90,9 +90,9 @@ export function UploadForm(props) {
                         className="form-control"
                         name="pillName"
                         id="pillName"
-                        placeholder="Ex. Acetaminophen" 
+                        placeholder="Ex. Acetaminophen"
                         value={fillDrugName}
-                        required/>
+                        required />
                     {/* <div class="invalid-feedback">Please provide a name.</div> */}
                 </div>
                 <div className="mb-3">
@@ -167,7 +167,7 @@ function Checkboxes(props) {
     const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
     const checks = daysOfTheWeek.map(day => {
         return (
-            <div className="form-check form-check-inline">
+            <div key={day} className="form-check form-check-inline">
                 <input
                     className="form-check-input"
                     type="checkbox"

@@ -44,7 +44,7 @@ function PillItems(props) {
       {organized}
     </div>
   )
-  
+
 }
 function AccordionItemsNoPills(props) {
   return (
@@ -92,8 +92,12 @@ function PillboxContent(props) {
 
 export function PillboxRow(props) {
   const organizedPillbox = props.organizedPillbox
+  const currentUser = props.currentUser;
   return (
-    <PillboxContent handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} organizedPillbox={organizedPillbox} />
+    <div>
+      <h1>{"Welcome " + currentUser + "!"}</h1>
+      <PillboxContent handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} organizedPillbox={organizedPillbox} />
+    </div>
     //<PillboxContent handleRemove={props.handleRemove} weeklyPills={weeklyPills} />
   )
 

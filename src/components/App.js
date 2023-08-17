@@ -11,6 +11,7 @@ import { Login } from './login.js';
 
 function App({ drugsList }) {
   //Organized pillbox with pills on specific days based on user prescription.
+  const [currentUser, setCurrentUser] = useState('');
   const [organizedPillbox, setOrganizedPillbox] = useState({ monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] });
   //User's pool of prescribed pills. Each with description, side effects, which days to take, dosage, etc.
   const [userPrescription, setUserPrescription] = useState([]);
@@ -23,16 +24,21 @@ function App({ drugsList }) {
     setOrganizedPillbox(weeklyPills);
   }
 
+  const handleSetUser = (userName) => {
+    setCurrentUser(userName);
+  }
+  console.log(currentUser);
+
   return (
     <div>
       <Header />
       <main>
         <div className="container">
           <Routes>
-            <Route index element={<PillboxRow organizedPillbox={organizedPillbox} handleSetOrganizedPillbox={handleSetOrganizedPillbox} />} />
+            <Route index element={<PillboxRow organizedPillbox={organizedPillbox} handleSetOrganizedPillbox={handleSetOrganizedPillbox} currentUser={currentUser} />} />
             <Route path="upload" element={<UploadForm handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} />
             <Route path="search" element={<Search drugsList={drugsList} />} />
-            <Route path='login' element={<Login/>}/>
+            <Route path='login' element={<Login handleSetUser={handleSetUser} handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} />} />
           </Routes>
         </div>
       </main>
