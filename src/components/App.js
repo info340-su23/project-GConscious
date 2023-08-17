@@ -7,8 +7,6 @@ import { Reorganize } from './Reorganize.js';
 import { Search } from './Search.js';
 import { Route, Routes } from "react-router-dom";
 import { Login } from './login.js';
-//import { add } from 'lodash';
-//import { useNavigate } from 'react-router-dom';
 
 function App({ drugsList }) {
   //Organized pillbox with pills on specific days based on user prescription.

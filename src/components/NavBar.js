@@ -26,9 +26,6 @@ export function NavBar() {
                         <li className="nav-item">
                             <NavLink aria-label="Login Page" className="nav-link" to="/login">Sign in</NavLink>
                         </li>
-                        {/* <button onClick={HandleLogout}>
-                            Logout
-                        </button> */}
                     </ul>
                 </div>
             </div>

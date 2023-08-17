@@ -95,10 +95,10 @@ export function PillboxRow(props) {
   const currentUser = props.currentUser;
   return (
     <div>
-      <h1>{"Welcome " + currentUser + "!"}</h1>
+      <h1 className='text-center' style={{ fontFamily: 'Monospace, Arial, sans-serif', fontSize: '35px', fontWeight: 'bold'}}>
+        {"Welcome to dose pillbox " + currentUser + "!"}
+      </h1>
       <PillboxContent handleSetOrganizedPillbox={props.handleSetOrganizedPillbox} organizedPillbox={organizedPillbox} />
     </div>
-    //<PillboxContent handleRemove={props.handleRemove} weeklyPills={weeklyPills} />
   )
-
 }

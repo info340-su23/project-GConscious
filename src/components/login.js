@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
@@ -35,7 +34,6 @@ export function Login(props) {
                         toast.error("Invalid password");
                     }
 
-
                     if (user[0].password === password && user[0].email === email) {
                         toast.success('Login successful');
                         setUsername(user[0].user);
@@ -52,24 +50,6 @@ export function Login(props) {
                     props.handleSetUserPrescriptions(user[0].prescriptions);
                     navigate('/');
 
-
-
-                    // console.log(e.target.password.value);
-                    // console.log(e.target.email.value);
-
-
-
-
-                    // if (Object.keys(response).length === 3) {
-                    //     toast.error('Please Enter valid username and password');
-                    // } else {
-                    //     if (response.password === password) {
-                    //         toast.success('Login Successful');
-                    //         usenavigate('/');
-                    //     } else {
-                    //         toast.error('Please Enter valid information');
-                    //     }
-                    // }
                 }).catch((error) => {
                     toast.error('Failed to Login due to : ' + error.message)
                     console.log(error);
@@ -97,17 +77,17 @@ export function Login(props) {
             <ToastContainer />
             <div className='offset-lg-3 col-lg-6'>
                 <form onSubmit={ProceedLogin} className='container'>
-                    <div className='card'>
+                    <div className='card customMargin'>
                         <div className='card-header'>
                             <h2>User Login</h2>
                         </div>
                         <div className='card-body'>
                             <div className='form-group'>
-                                <label>Email<span className='errormsg'>*</span></label>
+                                <label className='col-sm-3 col-form-label'>Email<span className='errormsg'>*</span></label>
                                 <input className='form-group' name='email' value={username} onChange={e => setUsername(e.target.value)}></input>
                             </div>
                             <div className='form-group'>
-                                <label>Password <span className='errormsg'>*</span></label>
+                                <label className='col-sm-3 col-form-label'>Password <span className='errormsg'>*</span></label>
                                 <input className='form-group' name='password' type='password' value={password} onChange={e => setPassword(e.target.value)}></input>
                             </div>
                         </div>
