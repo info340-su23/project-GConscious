@@ -5,6 +5,7 @@ import { PillboxRow } from './SectionPillboxContent.js';
 import { UploadForm } from './UploadForm.js';
 import { Search } from './Search.js';
 import { Route, Routes } from "react-router-dom";
+import { Login } from './login.js';
 //import { add } from 'lodash';
 //import { useNavigate } from 'react-router-dom';
 
@@ -31,6 +32,7 @@ function App({ drugsList }) {
             <Route index element={<PillboxRow organizedPillbox={organizedPillbox} handleSetOrganizedPillbox={handleSetOrganizedPillbox} />} />
             <Route path="upload" element={<UploadForm handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} />
             <Route path="search" element={<Search drugsList={drugsList} />} />
+            <Route path='login' element={<Login/>}/>
           </Routes>
         </div>
       </main>

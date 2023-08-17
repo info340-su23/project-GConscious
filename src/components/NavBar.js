@@ -12,16 +12,8 @@ export function NavBar() {
                     aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                {/* <NavLink to='/pillbox'>My Pillbox</NavLink> */}
-                {/* <NavLink to='/upload'>upload</NavLink> */}
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    {/* 
-                    <NavLink to='/pillbox'>My Pillbox</NavLink>
-                    <NavLink to='/upload'>upload</NavLink> */}
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        {/* <li className="nav-item">
-                            <NavLink className="nav-link active" aria-current="page" to="">Home</NavLink>
-                        </li> */}
                         <li className="nav-item">
                             <NavLink aria-label="My Pillbox Page" className="nav-link" to="/">My Pillbox</NavLink>
                         </li>
@@ -29,7 +21,14 @@ export function NavBar() {
                             <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                        </li>
+                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                       
+                        </li>
+                        <li className="nav-item">
+                            <NavLink aria-label="Login Page" className="nav-link" to="/login">Sign in</NavLink>
+                        </li>
+                        {/* <button onClick={HandleLogout}>
+                            Logout
+                        </button> */}
                     </ul>
                 </div>
             </div>
