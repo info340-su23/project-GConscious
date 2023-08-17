@@ -127,7 +127,7 @@ function Redirecting(props) {
 
     useEffect(() => {
         setTimeout(() => {
-            navigate('/');
+            navigate('/mypillbox');
         }, 2000)
     })
     return (

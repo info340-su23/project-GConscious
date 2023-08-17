@@ -15,16 +15,19 @@ export function NavBar() {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/">My Pillbox</NavLink>
+                            <NavLink aria-label="My Pillbox Page" className="nav-link" to="/mypillbox">My Pillbox</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink aria-label="Search Page" className="nav-link" to="/search">Search</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>                       
+                            <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Login Page" className="nav-link" to="/login">Sign in</NavLink>
+                            <NavLink aria-label="Login Page" className="nav-link" to="/reorganize">Reorganize</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink aria-label="Login Page" className="nav-link" to="/">Sign in</NavLink>
                         </li>
                     </ul>
                 </div>

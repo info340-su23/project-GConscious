@@ -40,9 +40,7 @@ export function Reorganize(props) {
     }
 
     // setUserPrescription with modified pill
-    // props.handleSetUserPrescriptions(newUserPrescription);
-
-    // props.handleSetUserPrescriptions(newUserPrescription);
+    props.handleSetUserPrescriptions(newUserPrescription);
 
     return (
         <>
