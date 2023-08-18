@@ -66,23 +66,25 @@ export function UploadForm(props) {
     const fillDrugName = urlParams.get('drug');
     const sideEffects = urlParams.get('side_effects');
 
-    //Custom form validation in progress
-    // useEffect(() => {
-    //     const uploadForm = document.querySelector('.needs-validation');
+    //Custom form validation
+    useEffect(() => {
+        const uploadForm = document.querySelectorAll('.needs-validation');
 
-    //     uploadForm.addEventListener('submit', function (event) {
-    //         if (!uploadForm.checkValidity()) {
-    //             event.preventDefault();
-    //             event.stopPropagation();
-    //         }
-    //         uploadForm.classList.add('was-validated');
-    //     });
-    // }, []);
+        Array.from(uploadForm).forEach((field) => {
+            field.addEventListener('submit', function (event) {
+                if (!field.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                field.classList.add('was-validated');
+            });
+        });
+    }, []);
 
 
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form className='needs-validation' onSubmit={handleSubmit} noValidate >
                 <div className="form-group upload-fields">
                     <label htmlFor="pillName" className="col-sm-2 col-form-label">Medicine Name</label>
                     <input
@@ -93,7 +95,7 @@ export function UploadForm(props) {
                         placeholder="Ex. Acetaminophen"
                         value={fillDrugName}
                         required />
-                    {/* <div class="invalid-feedback">Please provide a name.</div> */}
+                    <div class="invalid-feedback">Please provide a name.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="dose" className="form-label">Dose</label>
@@ -105,7 +107,7 @@ export function UploadForm(props) {
                         placeholder="Ex. Three times per day"
                         required
                     />
-                    {/* <div class="invalid-feedback">Please provide a dosage.</div> */}
+                    <div class="invalid-feedback">Please provide a dosage.</div>
 
                 </div>
                 <div className="mb-3">
@@ -117,7 +119,7 @@ export function UploadForm(props) {
                         id="quantity"
                         required
                     />
-                    {/* <div class="invalid-feedback">Please provide a quantity.</div> */}
+                    <div class="invalid-feedback">Please provide a quantity.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="refills" className="form-label">Refills</label>
@@ -128,7 +130,7 @@ export function UploadForm(props) {
                         id="refills"
                         required
                     />
-                    {/* <div class="invalid-feedback">Please provide the amount of refills.</div> */}
+                    <div class="invalid-feedback">Please provide the amount of refills.</div>
                 </div>
                 <div className="mb-3">
                     <label htmlFor="description" className="form-label">Description</label>
