@@ -40,7 +40,7 @@ function App({ drugsList }) {
             <Route path="search" element={<Search drugsList={drugsList} />} />
             <Route path="reorganize" element={<Reorganize handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} userPrescription={userPrescription} organizedPillbox={organizedPillbox} />} />
             <Route index element={<Login handleSetUser={handleSetUser} handleSetOrganizedPillbox={handleSetOrganizedPillbox} handleSetUserPrescriptions={handleSetUserPrescriptions} />} />
-          </Routes>
+           </Routes>
         </div>
       </main>
       <Footer />

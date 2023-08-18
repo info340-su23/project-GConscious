@@ -30,22 +30,22 @@ export function Reorganize(props) {
 
         const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
         const daysArray = [];
-        days.forEach(day => {
+        const selectedDays = days.forEach(day => {
             if (event.target[day].checked === true) {
                 daysArray.push(event.target[day].value);
             }
         })
-
-
+        const newUserPrescription = { ...userPrescription, days: selectedDays };
+        props.handleSetUserPrescriptions(newUserPrescription);
     }
 
     // setUserPrescription with modified pill
-    props.handleSetUserPrescriptions(newUserPrescription);
+    //props.handleSetUserPrescriptions(newUserPrescription);
 
     return (
-        <>
+        <form onSubmit={handleSubmit}>
             <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
-        </>
+        </form>
     )
 }
 
@@ -65,7 +65,7 @@ function Checkboxes(props) {
                     onChange={handleCheckboxChange}
                     id="days"
                 />
-                <label htmlFor="monday" className="form-check-label" >
+                <label htmlFor={day} className="form-check-label" >
                     {day}
                 </label>
             </div>
