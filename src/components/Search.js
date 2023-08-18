@@ -9,7 +9,7 @@ function SearchRow({ drugsList }) {
 
   const navigate = useNavigate();
   const handleButtonClicked = () => {
-    navigate("/upload?drug=" + encodeURIComponent(drug_name) + '&side_effects='+encodeURIComponent(side_effects));
+    navigate("/upload?drug=" + encodeURIComponent(drug_name) + '&side_effects=' + encodeURIComponent(side_effects));
   };
 
   //appearance
@@ -82,9 +82,11 @@ export function Search() {
   //example links
   const defaultLinks = (
     <div>
-      <p>Example prescriptions</p>
+      {/* <p>Example prescriptions</p> */}
+      <h1>Search for a medication</h1>
       <ul>
-        <li className="my-3">
+        
+        {/* <li className="my-3">
           <a href="https://medlineplus.gov/druginfo/meds/a696005.html" target="_blank">Metformin</a>
         </li>
         <li className="my-3">
@@ -101,7 +103,7 @@ export function Search() {
         </li>
         <li className="my-3">
           <a href="https://medlineplus.gov/druginfo/meds/a695033.html" target="_blank">Metoprolol</a>
-        </li>
+        </li> */}
       </ul>
     </div>
   );
