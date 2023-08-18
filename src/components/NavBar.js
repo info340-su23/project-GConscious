@@ -24,7 +24,7 @@ export function NavBar() {
                             <NavLink aria-label="Upload Meds Page" className="nav-link" to="/upload">Upload Meds</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink aria-label="Login Page" className="nav-link" to="/reorganize">Reorganize</NavLink>
+                            <NavLink aria-label="Reorganize Page" className="nav-link" to="/reorganize">Reorganize</NavLink>
                         </li>
                         <li className="nav-item">
                             <NavLink aria-label="Login Page" className="nav-link" to="/">Sign in</NavLink>
