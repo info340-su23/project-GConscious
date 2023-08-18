@@ -29,12 +29,12 @@ function PillItems(props) {
       <Accordion.Item listid={pillObj.pillName} key={pillObj.pillName} eventKey="0">
         <Accordion.Header>{pillObj.pillName}</Accordion.Header>
         <Accordion.Body>
-          <p>{"Dose: " + pillObj.dose + " per day."}</p>
+          <p>{"Dose: " + pillObj.dose}</p>
           <p>{"Quantity: " + pillObj.quantity}</p>
           <p>{"Next Refill: " + pillObj.refills + " weeks left. "}</p>
-          <p>{"Description: " + pillObj.description}</p>
-          <p>{"Symptoms: " + pillObj.symptoms}</p>
-          <button name={pillObj.pillName} value={day} onClick={handleRemove}>remove</button>
+          <p>{"Notes: " + pillObj.notes}</p>
+          <p>{"Side Effects: " + pillObj.symptoms}</p>
+          <button name={pillObj.pillName} value={day} onClick={handleRemove}>Remove</button>
         </Accordion.Body>
       </Accordion.Item>
     </Accordion>

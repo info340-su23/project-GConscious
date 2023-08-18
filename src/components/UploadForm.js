@@ -37,9 +37,9 @@ export function UploadForm(props) {
                 daysArray.push(event.target[day].value);
             }
         })
-        const description = event.target.description.value;
+        const notes = event.target.notes.value;
         const symptoms = event.target.symptoms.value;
-        const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, description: description, symptoms: symptoms };
+        const newPrescription = { pillName: pillName, dose: dose, quantity: quantity, refills: refills, days: daysArray, notes: notes, symptoms: symptoms };
 
         // Add on to current userData and setUser data
         const newUserPrescription = [...props.userPrescription, newPrescription];
@@ -69,7 +69,6 @@ export function UploadForm(props) {
     //Custom form validation
     useEffect(() => {
         const uploadForm = document.querySelectorAll('.needs-validation');
-
         Array.from(uploadForm).forEach((field) => {
             field.addEventListener('submit', function (event) {
                 if (!field.checkValidity()) {
@@ -133,12 +132,12 @@ export function UploadForm(props) {
                     <div class="invalid-feedback">Please provide the amount of refills.</div>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Description</label>
+                    <label htmlFor="notes" className="form-label">Notes</label>
                     <input
                         type="text"
                         className="form-control"
-                        name="description"
-                        id="description"
+                        name="notes"
+                        id="notes"
                     />
                 </div>
                 <div className="mb-3">
@@ -156,6 +155,7 @@ export function UploadForm(props) {
                         <label htmlFor="days" className="form-label">Days </label>
                     </div>
                     <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+                    <div class="invalid-feedback">Please select at least one day.</div>
                 </div>
                 <button className="btn btn-primary">Submit</button>
             </form>
