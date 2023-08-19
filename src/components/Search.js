@@ -82,29 +82,7 @@ export function Search() {
   //example links
   const defaultLinks = (
     <div>
-      {/* <p>Example prescriptions</p> */}
       <h1>Search for a medication</h1>
-      {/* <ul>
-        
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a696005.html" target="_blank">Metformin</a>
-        </li>
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a692030.html" target="_blank">Simvastatin</a>
-        </li>
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a605045.html" target="_blank">Pregabalin</a>
-        </li>
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a692051.html" target="_blank">Lisinopril</a>
-        </li>
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a682864.html" target="_blank">Metoprolol</a>
-        </li>
-        <li className="my-3">
-          <a href="https://medlineplus.gov/druginfo/meds/a695033.html" target="_blank">Metoprolol</a>
-        </li>
-      </ul> */}
     </div>
   );
 
@@ -120,7 +98,7 @@ export function Search() {
       <input
         type="text"
         className="form-control search-input mb-3"
-        placeholder="Type here to search for medications.."
+        placeholder="Type here to search for medications..."
         onChange={handleInputChange}
         value={searchTerm}
       />
@@ -133,7 +111,7 @@ export function Search() {
   return (
     <div className="mb-4">
       {searchResult}
-      <small>Search Dataset via <a href="https://www.kaggle.com/datasets/jithinanievarghese/drugs-side-effects-and-medical-condition" target="_blank">Link</a>.</small>
+      <small>Search Dataset via <a href="https://www.kaggle.com/datasets/jithinanievarghese/drugs-side-effects-and-medical-condition" target="_blank">Kaggle</a>.</small>
     </div>
   )
 }
