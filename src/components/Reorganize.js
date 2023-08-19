@@ -42,9 +42,9 @@ export function Reorganize(props) {
 
     return (
         <div>
-        <PrescriptionList userPrescription={userPrescription} />
+        <PrescriptionList userPrescription={userPrescription} handleCheckboxChange={handleCheckboxChange} isChecked={isChecked}/>
         <form onSubmit={handleSubmit}>
-            <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+            {/* <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} /> */}
         </form>
         </div>
     )
@@ -83,17 +83,24 @@ function Checkboxes(props) {
     )
 }
 
+
+
 function PrescriptionList(props) {
 
-    const userPrescription = props.userPrescription
+    const userPrescription = props.userPrescription;
+    const handleCheckboxChange = props.handleCheckboxChange;
+    const isChecked = props.isChecked;
 
-    const prescripElems = userPrescription.map((prescription) => (
-        <p key={prescription.pillName}>{prescription.pillName}</p>
+    const prescripElementsArray = userPrescription.map((prescription) => (
+        <div key={prescription.pillName}>
+            <h1>{prescription.pillName}</h1>
+            <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+        </div>
     ));
 
     return (
         <div>
-            {prescripElems}
+            {prescripElementsArray}
         </div>
     );
 };
