@@ -6,7 +6,7 @@ export function Reorganize(props) {
     const navigate = useNavigate();
 
     let names = {};
-    userPrescription.forEach(function(pillObj) {
+    userPrescription.forEach(function (pillObj) {
         names[pillObj.pillName] = false;
     });
 
@@ -53,8 +53,15 @@ export function Reorganize(props) {
             days: [...daysArray]
         }));
         console.log(newPrescription);
-        
+
         props.handleSetUserPrescriptions(newPrescription);
+        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+        newPrescription.forEach(pillObj => {
+            pillObj.days.forEach(day => {
+                weeklyPills[day].push(pillObj)
+            });
+        });
+        props.handleSetOrganizedPillbox(weeklyPills);
         event.target.reset();
         navigate('/mypillbox');
     };
