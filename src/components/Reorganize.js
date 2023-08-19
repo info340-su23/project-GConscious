@@ -21,8 +21,6 @@ export function Reorganize(props) {
         setIsChecked({ ...isChecked, ...switchCheck });
     }
 
-    // Grab pillobj[days] in the following format: const newPrescription = {pillName: pillName, dose: dose, quantity: quantity}
-
     // Re-assign/replace days with user's chosen days
 
     const handleSubmit = (event) => {
@@ -43,9 +41,12 @@ export function Reorganize(props) {
     //props.handleSetUserPrescriptions(newUserPrescription);
 
     return (
+        <div>
+        <PrescriptionList userPrescription={userPrescription} />
         <form onSubmit={handleSubmit}>
             <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
         </form>
+        </div>
     )
 }
 
@@ -74,8 +75,25 @@ function Checkboxes(props) {
     })
 
     return (
-        <div>
-            {checks}
-        </div>
+        <>
+                <div>
+                    {checks}
+                </div>
+        </>
     )
 }
+
+function PrescriptionList(props) {
+
+    const userPrescription = props.userPrescription
+
+    const prescripElems = userPrescription.map((prescription) => (
+        <p key={prescription.pillName}>{prescription.pillName}</p>
+    ));
+
+    return (
+        <div>
+            {prescripElems}
+        </div>
+    );
+};
