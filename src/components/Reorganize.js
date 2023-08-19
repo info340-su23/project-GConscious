@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export function Reorganize(props) {
     // Grab passd down current Prescriptions and list them out for user
     let userPrescription = props.userPrescription;
     console.log(userPrescription);
+    const navigate = useNavigate();
+
 
     // Have user select which pill to adjust days
     const [isChecked, setIsChecked] = useState({
@@ -54,6 +57,8 @@ export function Reorganize(props) {
             });
         });
         props.handleSetOrganizedPillbox(weeklyPills);
+        event.target.reset();
+        navigate('/mypillbox');
 
     }
 
