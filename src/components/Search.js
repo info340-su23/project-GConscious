@@ -84,9 +84,9 @@ export function Search() {
     <div>
       {/* <p>Example prescriptions</p> */}
       <h1>Search for a medication</h1>
-      <ul>
+      {/* <ul>
         
-        {/* <li className="my-3">
+        <li className="my-3">
           <a href="https://medlineplus.gov/druginfo/meds/a696005.html" target="_blank">Metformin</a>
         </li>
         <li className="my-3">
@@ -103,8 +103,8 @@ export function Search() {
         </li>
         <li className="my-3">
           <a href="https://medlineplus.gov/druginfo/meds/a695033.html" target="_blank">Metoprolol</a>
-        </li> */}
-      </ul>
+        </li>
+      </ul> */}
     </div>
   );
 
@@ -116,7 +116,7 @@ export function Search() {
 
   //Search result
   const searchResult = (
-    <div className="my-5">
+    <div className="marginTop">
       <input
         type="text"
         className="form-control search-input mb-3"
@@ -124,7 +124,7 @@ export function Search() {
         onChange={handleInputChange}
         value={searchTerm}
       />
-      <ul className="searchable-drugs-ul">
+      <ul className="searchable-drugs-ul marginBottom">
         {content}
       </ul>
     </div>
