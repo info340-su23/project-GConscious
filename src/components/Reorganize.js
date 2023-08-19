@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 export function Reorganize(props) {
     // Grab passd down current Prescriptions and list them out for user
     let userPrescription = props.userPrescription;
+    console.log(userPrescription);
 
     // Have user select which pill to adjust days
     const [isChecked, setIsChecked] = useState({
@@ -33,21 +34,39 @@ export function Reorganize(props) {
                 daysArray.push(event.target[day].value);
             }
         })
-        const newUserPrescription = { ...userPrescription, days: selectedDays };
-        props.handleSetUserPrescriptions(newUserPrescription);
+        console.log(daysArray);
+        console.log(userPrescription);
+
+        const newPrescription = userPrescription.map(pillObj => {
+            console.log(pillObj);
+            pillObj.days = daysArray;
+            return (
+                pillObj
+            )
+        })
+        console.log(newPrescription);
+        props.handleSetUserPrescriptions(newPrescription);
+        console.log(props.organizedPillbox)
+        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
+        newPrescription.forEach(pillObj => {
+            pillObj.days.forEach(day => {
+                weeklyPills[day].push(pillObj)
+            });
+        });
+        props.handleSetOrganizedPillbox(weeklyPills);
+
     }
 
-    // setUserPrescription with modified pill
-    //props.handleSetUserPrescriptions(newUserPrescription);
+
 
     return (
         <div>
-        <h1>Select the pill you'd like to reorganize:</h1>
-        <PrescriptionList userPrescription={userPrescription} handleCheckboxChange={handleCheckboxChange} isChecked={isChecked}/>
-        <form onSubmit={handleSubmit}>
-            <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
-            <button className="btn btn-primary">Reorganize</button>
-        </form>
+            <h1>Select the pill you'd like to reorganize:</h1>
+            <PrescriptionList userPrescription={userPrescription} handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} />
+            <form onSubmit={handleSubmit}>
+                <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+                <button className="btn btn-primary">Reorganize</button>
+            </form>
         </div>
     )
 }
@@ -78,9 +97,9 @@ function Checkboxes(props) {
 
     return (
         <>
-                <div>
-                    {checks}
-                </div>
+            <div>
+                {checks}
+            </div>
         </>
     )
 }
@@ -91,15 +110,18 @@ function PrescriptionList(props) {
 
     const userPrescription = props.userPrescription;
 
-    const prescripElementsArray = userPrescription.map((prescription) => (
-        <div key={prescription.pillName}>
-            <p>{prescription.pillName}</p>
-        </div>
-    ));
+    const prescripElementsArray = userPrescription.map(prescription => {
+        return (
+
+            <div key={prescription.pillName}>
+                <p>{prescription.pillName}</p>
+            </div>
+        )
+    })
 
     return (
         <div>
             {prescripElementsArray}
         </div>
-    );
-};
+    )
+}
