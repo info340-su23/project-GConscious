@@ -80,6 +80,9 @@ export function Reorganize(props) {
             <h1 className='mt-5' style={{ fontFamily: 'Verdana, sans-serif', fontSize: '35px', fontWeight: 'bold' }}>
                 Select the pill you'd like to reorganize:
             </h1>
+            <p>
+                Note: please select only one pill at a time!
+            </p>
             <form onSubmit={handleSubmit}>
                 <PillCheckBoxes reorgPill={reorgPill} handlePillChange={handlePillChange} />
                 <DaysCheckBox isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
