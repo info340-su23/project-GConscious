@@ -1,14 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 export function Reorganize(props) {
-    // Grab passd down current Prescriptions and list them out for user
-    let userPrescription = props.userPrescription;
-    console.log(userPrescription);
+    const userPrescription = props.userPrescription;
     const navigate = useNavigate();
 
+    let names = {};
+    userPrescription.forEach(function(pillObj) {
+        names[pillObj.pillName] = false;
+    });
 
     // Have user select which pill to adjust days
+    const [reorgPill, setReorgPill] = useState(names);
+
+    const handlePillChange = (event) => {
+        const { name } = event.target;
+        setReorgPill((prevReorgPill) => ({
+            ...prevReorgPill,
+            [name]: !prevReorgPill[name]
+        }));
+    };
+
+    // Have user select days
     const [isChecked, setIsChecked] = useState({
         monday: false,
         tuesday: false,
@@ -21,112 +34,85 @@ export function Reorganize(props) {
 
     const handleCheckboxChange = (event) => {
         const { name } = event.target;
-        const switchCheck = { [name]: !(isChecked[name]) }
-        setIsChecked({ ...isChecked, ...switchCheck });
-    }
+        setIsChecked((prevIsChecked) => ({
+            ...prevIsChecked,
+            [name]: !prevIsChecked[name]
+        }));
+    };
 
     // Re-assign/replace days with user's chosen days
-
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-        const daysArray = [];
-        const selectedDays = days.forEach(day => {
-            if (event.target[day].checked === true) {
-                daysArray.push(event.target[day].value);
-            }
-        })
+        const daysArray = Object.keys(isChecked).filter(day => isChecked[day]);
         console.log(daysArray);
         console.log(userPrescription);
 
-        const newPrescription = userPrescription.map(pillObj => {
-            console.log(pillObj);
-            pillObj.days = daysArray;
-            return (
-                pillObj
-            )
-        })
+        const newPrescription = userPrescription.map(pillObj => ({
+            ...pillObj,
+            days: [...daysArray]
+        }));
         console.log(newPrescription);
+        
         props.handleSetUserPrescriptions(newPrescription);
-        console.log(props.organizedPillbox)
-        const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
-        newPrescription.forEach(pillObj => {
-            pillObj.days.forEach(day => {
-                weeklyPills[day].push(pillObj)
-            });
-        });
-        props.handleSetOrganizedPillbox(weeklyPills);
         event.target.reset();
         navigate('/mypillbox');
-
-    }
-
-
+    };
 
     return (
         <div>
-            <h1>Select the pill you'd like to reorganize:</h1>
-            <PrescriptionList userPrescription={userPrescription} handleCheckboxChange={handleCheckboxChange} isChecked={isChecked} />
+            <h1 className='mt-5' style={{ fontFamily: 'Verdana, sans-serif', fontSize: '35px', fontWeight: 'bold' }}>
+                Select the pill you'd like to reorganize:
+            </h1>
             <form onSubmit={handleSubmit}>
-                <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
-                <button className="btn btn-primary">Reorganize</button>
+                <PillCheckBoxes reorgPill={reorgPill} handlePillChange={handlePillChange} />
+                <DaysCheckBox isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+                <button className="btn btn-primary mb-5">Reorganize</button>
             </form>
         </div>
-    )
+    );
 }
 
-function Checkboxes(props) {
-    const isChecked = props.isChecked;
-    const handleCheckboxChange = props.handleCheckboxChange;
-    const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
-    const checks = daysOfTheWeek.map(day => {
-        return (
-            <div key={day} className="form-check form-check-inline">
-                <input
-                    className="form-check-input"
-                    type="checkbox"
-                    name={day}
-                    value={day}
-                    checked={isChecked[day]}
-                    onChange={handleCheckboxChange}
-                    id="days"
-                />
-                <label htmlFor={day} className="form-check-label" >
-                    {day}
-                </label>
-            </div>
-        )
-
-    })
-
+function PillCheckBoxes({ reorgPill, handlePillChange }) {
     return (
-        <>
-            <div>
-                {checks}
-            </div>
-        </>
-    )
-}
-
-
-
-function PrescriptionList(props) {
-
-    const userPrescription = props.userPrescription;
-
-    const prescripElementsArray = userPrescription.map(prescription => {
-        return (
-
-            <div key={prescription.pillName}>
-                <p>{prescription.pillName}</p>
-            </div>
-        )
-    })
-
-    return (
-        <div>
-            {prescripElementsArray}
+        <div className='mb-5 mt-5'>
+            {Object.keys(reorgPill).map(pillName => (
+                <div key={pillName} className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name={pillName}
+                        checked={reorgPill[pillName]}
+                        onChange={handlePillChange}
+                    />
+                    <label htmlFor={pillName} className="form-check-label">
+                        {pillName}
+                    </label>
+                </div>
+            ))}
         </div>
-    )
+    );
+}
+
+function DaysCheckBox({ isChecked, handleCheckboxChange }) {
+    const daysOfTheWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+
+    return (
+        <div className='mb-5'>
+            {daysOfTheWeek.map(day => (
+                <div key={day} className="form-check form-check-inline">
+                    <input
+                        className="form-check-input"
+                        type="checkbox"
+                        name={day}
+                        checked={isChecked[day]}
+                        onChange={handleCheckboxChange}
+                    />
+                    <label htmlFor={day} className="form-check-label">
+                        {day}
+                    </label>
+                </div>
+            ))}
+        </div>
+    );
 }
