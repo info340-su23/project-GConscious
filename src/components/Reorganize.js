@@ -11,10 +11,12 @@ export function Reorganize(props) {
     });
 
     // Have user select which pill to adjust days
+    const [selectedPill, setSelectedPill] = useState(null); // Add selectedPill state
     const [reorgPill, setReorgPill] = useState(names);
 
     const handlePillChange = (event) => {
         const { name } = event.target;
+        setSelectedPill(name); // Update the selected pill
         setReorgPill((prevReorgPill) => ({
             ...prevReorgPill,
             [name]: !prevReorgPill[name]
@@ -44,15 +46,22 @@ export function Reorganize(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const daysArray = Object.keys(isChecked).filter(day => isChecked[day]);
-        console.log(daysArray);
-        console.log(userPrescription);
+        if (!selectedPill) {
+            // Handle case where no pill is selected
+            return;
+        }
 
-        const newPrescription = userPrescription.map(pillObj => ({
-            ...pillObj,
-            days: [...daysArray]
-        }));
-        console.log(newPrescription);
+        const daysArray = Object.keys(isChecked).filter(day => isChecked[day]);
+
+        const newPrescription = userPrescription.map(pillObj => {
+            if (pillObj.pillName === selectedPill) {
+                return {
+                    ...pillObj,
+                    days: [...daysArray]
+                };
+            }
+            return pillObj;
+        });
 
         props.handleSetUserPrescriptions(newPrescription);
         const weeklyPills = { monday: [], tuesday: [], wednesday: [], thursday: [], friday: [], saturday: [], sunday: [] };
