@@ -46,6 +46,7 @@ export function Reorganize(props) {
         <PrescriptionList userPrescription={userPrescription} handleCheckboxChange={handleCheckboxChange} isChecked={isChecked}/>
         <form onSubmit={handleSubmit}>
             <Checkboxes isChecked={isChecked} handleCheckboxChange={handleCheckboxChange} />
+            <button className="btn btn-primary">Reorganize</button>
         </form>
         </div>
     )
