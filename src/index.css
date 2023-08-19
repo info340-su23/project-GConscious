@@ -91,6 +91,14 @@ textarea {
   margin-bottom: 180px;
 }
 
+.marginTop {
+  margin-top: 80px;
+}
+
+.marginBottom {
+  margin-bottom: 250px;
+}
+
 /* Media query to enable varied display of our app on different devices: */
 @media (min-width: 598px) {
 
